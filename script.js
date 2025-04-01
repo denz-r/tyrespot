@@ -182,51 +182,6 @@ function removeFromCart(index) {
 }
 
 
-// function checkout() {
-//     if (cart.length === 0) {
-//         alert("Your cart is empty!");
-//         return;
-//     }
-//     let total = cart.reduce((sum, item) => sum + item.price, 0);
-//     alert(`Order Summary:\n${cart.map(item => `${item.brand} ${item.model} - ₹${item.price}`).join("\n")}\nTotal: ₹${total}`);
-//     localStorage.removeItem("cart");
-//     cart.length = 0;
-//     updateCartDisplay();
-//     showSection("payment-container");
-
-   
-// }
-
-// updateCartDisplay();
-
-
-
-
-
-
-
-
-// function addNewTyre() {
-//     const brand = document.getElementById("newTyreBrand").value;
-//     const model = document.getElementById("newTyreModel").value;
-//     const size = document.getElementById("newTyreSize").value;
-//     const price = parseFloat(document.getElementById("newTyrePrice").value);
-//     const image = document.getElementById("newTyreImage").value;
-    
-//     if (!brand || !model || !size || !price || !image) {
-//         alert("Please fill all the fields correctly.");
-//         return;
-//     }
-    
-//     availableTyres.push({ brand, model, size, price, image });
-//     alert(`Tyre ${brand} ${model} added successfully!`);
-    
-//     document.getElementById("newTyreBrand").value = "";
-//     document.getElementById("newTyreModel").value = "";
-//     document.getElementById("newTyreSize").value = "";
-//     document.getElementById("newTyrePrice").value = "";
-//     document.getElementById("newTyreImage").value = "";
-// }
 
 
 
@@ -240,49 +195,8 @@ function removeFromCart(index) {
 
 
 
-//         function formatCardNumber(input) {
-//             input.value = input.value.replace(/\D/g, '');
-//             input.value = input.value.replace(/(.{4})/g, '$1 ').trim();
-//         }
 
-//         function validateExpiry(input) {
-//             input.value = input.value.replace(/\D/g, '').slice(0, 4);
-//             if (input.value.length >= 2) {
-//                 input.value = input.value.slice(0, 2) + '/' + input.value.slice(2);
-//             }
-//         }
 
-//         function processPayment() {
-//             let message = document.getElementById("message");
-//             let payButton = document.getElementById("payButton");
-//             let downloadButton = document.getElementById("downloadReceipt");
-            
-//             payButton.disabled = true;
-//             payButton.innerText = "Processing...";
-            
-//             setTimeout(() => {
-//                 message.style.display = "block";
-//                 payButton.innerText = "Pay Now";
-//                 payButton.disabled = false;
-//                 downloadButton.style.display = "block";
-//             }, 2000);
-//         }
-
-//         function downloadReceipt() {
-//             const { jsPDF } = window.jspdf;
-//             const doc = new jsPDF();
-//             const currentDate = new Date().toLocaleString();
-            
-//             doc.text("THE TYRE SPOT", 10, 10);
-//             doc.text("Payment Receipt", 10, 20);
-//             doc.text("-------------------", 10, 30);
-//             doc.text("Date: " + currentDate, 10, 40);
-//             doc.text("Card Number: **** **** **** " + document.getElementById("cardNumber").value.slice(-4), 10, 50);
-//             doc.text("Expiry Date: " + document.getElementById("expiry").value, 10, 60);
-//             doc.text("Amount: Rs 100.00", 10, 70);
-//             doc.text("Payment Status: Successful", 10, 80);
-//             doc.save("receipt.pdf");
-//         }
 
 
 
@@ -411,19 +325,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Toggle between login and signup forms
 document.getElementById('loginBtn').addEventListener('click', function() {
-    // document.getElementById('loginForm').classList.add('active');
-    // document.getElementById('registrationForm').classList.remove('active');
-    // this.classList.add('active');
-    // document.getElementById('signupBtn').classList.remove('active');
     document.getElementById('loginForm').style.display = 'block';
     document.getElementById('registrationForm').style.display = 'none';
 });
 
 document.getElementById('signupBtn').addEventListener('click', function() {
-    // document.getElementById('registrationForm').classList.add('active');
-    // document.getElementById('loginForm').classList.remove('active');
-    // this.classList.add('active');
-    // document.getElementById('loginBtn').classList.remove('active');
     document.getElementById('registrationForm').style.display = 'block';
     document.getElementById('loginForm').style.display = 'none';
 });
