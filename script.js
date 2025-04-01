@@ -1,4 +1,4 @@
-function showSection(sectionId) {
+function showHide(sectionId) {
     let sections = document.querySelectorAll('.ShowHide');
     sections.forEach(section => section.style.display = "none");
     document.getElementById(sectionId).style.display = "block";
@@ -20,57 +20,73 @@ const tyreData = {
   
     },
     SCV: {
-     Tata: { Ace: "145 R12 LT","Super Ace":"175 R14 LT",Intra:"165 R14 LT"},
-     Mahindra:{Jeeto:"145 R12 LT",Supro:"155 R13 LT","Bolero maxi truck":"195 R15 LT"},
-     "Ashok Leyland":{"BadaDost":"185 R14 LT",Panther:"195/80 R15 LT",Dost:"185 R14 LT"},
-     "Maruti Suzuki":{"Super carry":"155 R13 LT","Eco(cargo)":"155 R13 LT"},
+     Tata: { Ace: "145R12LT","Super Ace":"175R14LT",Intra:"165R14LT"},
+     Mahindra:{Jeeto:"145R12LT",Supro:"155R13LT","Bolero maxi truck":"195R15LT"},
+     "Ashok Leyland":{"BadaDost":"185R14LT",Panther:"195/80 R15 LT",Dost:"185R14LT"},
+     "Maruti Suzuki":{"Super carry":"155R13LT","Eco(cargo)":"155R13LT"},
     }
   };
   
   const availableTyres =[
-    { brand: "Apollo", model: "Alnac 4G", size: "195/65R15", price: 5000, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
-    { brand: "MRF", model: "ZLX", size: "195/65R15", price: 4500, image: "https://m.media-amazon.com/images/I/51kzNbKPrHL.AC_SS450.jpg" },         { brand: "Ceat", model: "SecuraDrive", size: "195/65R15", price: 4800, image: "https://ceat-images.com/securadrive.jpg" },
-    { brand: "Apollo", model: "Aspire 4G", size: "215/55R17", price: 5000, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
-    { brand: "MRF", model: "Perfinza CLX1", size: "215/55R17", price: 4500, image: "https://m.media-amazon.com/images/I/51kzNbKPrHL.AC_SS450.jpg" },
-    { brand: "Ceat", model: "SportDrive", size: "215/55R17", price: 4800, image: "https://ceat-images.com/securadrive.jpg" },
-    { brand: "Apollo", model: "Amazer 4G Life", size: "185/60R15", price: 5000, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
-    { brand: "MRF", model: "ZVTV", size: "185/60R15", price: 4500, image: "https://m.media-amazon.com/images/I/51kzNbKPrHL.AC_SS450.jpg" },
-    { brand: "Ceat", model: "Milaze X3", size: "185/60R15", price: 4800, image: "https://ceat-images.com/securadrive.jpg" },
-    { brand: "Apollo", model: "Apteerra AT2", size: "265/65R17", price: 5000, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
-    { brand: "MRF", model: "Wanderer A/T", size: "185/60R15", price: 4500, image: "https://m.media-amazon.com/images/I/51kzNbKPrHL.AC_SS450.jpg" },
-    { brand: "Ceat", model: "CrossDrive", size: "185/60R15", price: 4800, image: "https://ceat-images.com/securadrive.jpg" },
-    { brand: "Apollo", model: "Alnac 4G", size: "215/55R16", price: 5000, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
-    { brand: "MRF", model: "Perfinza", size: "215/55R16", price: 4500, image: "https://m.media-amazon.com/images/I/51kzNbKPrHL.AC_SS450.jpg" },
-    { brand: "Ceat", model: "SecuraDrive", size: "215/55R16", price: 4800, image: "https://ceat-images.com/securadrive.jpg" },
-    { brand: "Apollo", model: "Aspire 4G", size: "225/50R17", price: 5000, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
-    { brand: "MRF", model: "ZLO", size: "225/50R17", price: 4500, image: "https://m.media-amazon.com/images/I/51kzNbKPrHL.AC_SS450.jpg" },
-    { brand: "Ceat", model: "SportDrive", size: "225/50R17", price: 4800, image: "https://ceat-images.com/securadrive.jpg" },
-    { brand: "Apollo" , model:"Alpha H1", size:"140/70R17", price:5600, image: "https://images.app.goo.gl/BsbiFULyR3kPN4y77"},
-    { brand: "MRF" , model:"REVZ-S", size:"140/60R17", price:5400, image: "https://images.app.goo.gl/tCLVW9GiUCynfF7x7"},
-    { brand: "Ceat" , model:"Zoom RAD", size:"140/70R17", price:5500, image: "https://images.app.goo.gl/iQxx3rrjtV5xPfZh6"},
-    { brand: "Apollo" , model:"Alpha S1", size:"140/60R17", price:5300, image: "https://images.app.goo.gl/krvJJ8QpE9cM7D3n8"},
-    { brand: "MRF" , model:"REVZ-FC1", size:"140/60R17", price:5200, image: "https://images.app.goo.gl/sDxy8D7dwh1SF4GV9"},
-    { brand: "Ceat" , model:"Zoom X3", size:"140/60R17", price:5250, image: "https://images.app.goo.gl/JDomZRai6MZQJmnY6"},
-    { brand: "Apollo" , model:"Aplha H1", size:"190/50ZR17", price:8000, image: "https://images.app.goo.gl/hkCfUQe34CqgicVb8"},
-    { brand: "MRF" , model:"Zapper Vyde", size:"190/50ZR17", price:8600, image: "https://images.app.goo.gl/XnMfkKB3uS9S7QWR6"},
-    { brand: "Ceat" , model:"RAD X1", size:"190/50ZR17", price:8700, image: "https://images.app.goo.gl/E2yY4VuhF2DS6L2w7"},
-    { brand: "Apollo" , model:"ActiGrip R1", size:"80/100R18", price:3200, image: "https://images.app.goo.gl/Pvqx37i6YwVEYEh4A"},
-    { brand: "MRF" , model:"Zapper FS", size:"80/100R18", price:3100, image: "https://images.app.goo.gl/xroEaK9vyZbC8PiWA"},
-    { brand: "Ceat" , model:"Gripp X3", size:"80/100R18", price:3150, image: "https://images.app.goo.gl/rEDMncNKdbjCBTFp8"},
-    { brand: "Apollo" , model:"Actizip S3", size:"90/90 R10", price:2800, image: "https://images.app.goo.gl/LU8ZafcEvJ281cBg9"},
-    { brand: "MRF" , model:"Nylogrip", size:"90/90 R10", price:2700, image:"https://images.app.goo.gl/MPnBXpPkfPj4mEra8"},
-    { name: "CEAT",model: "Gripp X3",size:"90/90 R10", price: 2750, image:"https://images.app.goo.gl/RPKZB4RgyPQnkHCHA" },
-    { name: "Apollo",model: "Actizip R4",size:"100/90 R17", price: 4000, image:"https://images.app.goo.gl/JSycajYTQnJTry9B9" },
-    { name: "MRF" ,model:" Zapper FS " ,size:"100/90 R17", price: 3900,image:"https://images.app.goo.gl/T5LYrgKWLMJzCv349" },
-    { name: "CEAT" ,model:" Zoom X3" ,size:"100/90 R17", price: 3950, image:"https://images.app.goo.gl/ebqtQMVGEiTQWpux5" },
-    { name: "Apollo",model:" Alpha H1" ,size:"150/60 R17", price: 6000, image:"https://images.app.goo.gl/235s7ByEMM8BR8cW7" },
-    { name: "MRF" , model:" Revz-S" , size:"150/60 R17", price: 5900,image:"https://images.app.goo.gl/KK9LDHfJ3ygNjxj59" },
-    { name: "CEAT",model: "Zoom Rad",size:"150/60 R17", price: 5950,image:"https://images.app.goo.gl/qaNeAzipLc69ja6e9" },
-    { name: "Apollo",model:"Alpha H1",size:"190/55 ZR17", price: 9000,image:"https://images.app.goo.gl/roXPMq8o2BfbhMVd7" },
-    { name: "MRF", model:" Zapper Vyde",size: "190/55 ZR17", price: 8800,image:"https://images.app.goo.gl/oPYVpjs6cUYfQS8t9" },
-    { name: "CEAT", model:" Rad X1" ,size: "190/55 ZR17",price:8900,image:"https://images.app.goo.gl/Anyr5wmaPGNP4cJk8"}
+   
+        { brand: "Apollo", model: "Alnac 4G", size: "195/65R15", price: 5000, image: "https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg" },
+        { brand: "MRF", model: "ZLX", size: "195/65R15", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" }, 
+       { brand: "Ceat", model: "SecuraDrive", size: "195/65R15", price: 4800, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
+        { brand: "Apollo", model: "Aspire 4G", size: "215/55R17", price: 5000, image: "https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg" },
+        { brand: "MRF", model: "Perfinza CLX1", size: "215/55R17", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
+        { brand: "Ceat", model: "SportDrive", size: "215/55R17", price: 4800, image: "https" },
+        { brand: "Apollo", model: "Amazer 4G Life", size: "185/60R15", price: 5000, image: "Apollo.jpg" },
+        { brand: "MRF", model: "ZVTV", size: "185/60R15", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
+        { brand: "Ceat", model: "Milaze X3", size: "185/60R15", price: 4800, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
+        { brand: "Apollo", model: "Apteerra AT2", size: "265/65R17", price: 5000, image: "Apollo.jpg" },
+        { brand: "MRF", model: "Wanderer A/T", size: "185/60R15", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
+        { brand: "Ceat", model: "CrossDrive", size: "185/60R15", price: 4800, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
+        { brand: "Apollo", model: "Alnac 4G", size: "215/55R16", price: 5000, image: "Apollo.jpg" },
+        { brand: "MRF", model: "Perfinza", size: "215/55R16", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
+        { brand: "Ceat", model: "SecuraDrive", size: "215/55R16", price: 4800, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
+        { brand: "Apollo", model: "Aspire 4G", size: "225/50R17", price: 5000, image: "Apollo.jpg" },
+        { brand: "MRF", model: "ZLO", size: "225/50R17", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
+        { brand: "Ceat", model: "SportDrive", size: "225/50R17", price: 4800, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
+        { brand: "Apollo" , model:"Alpha H1", size:"140/70R17", price:5600, image: "https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg"},
+        { brand: "MRF" , model:"REVZ-S", size:"140/60R17", price:5400, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg"},
+        { brand: "Ceat" , model:"Zoom RAD", size:"140/70R17", price:5500, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg"},
+        { brand: "Apollo" , model:"Alpha S1", size:"140/60R17", price:5300, image: "https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg"},
+        { brand: "MRF" , model:"REVZ-FC1", size:"140/60R17", price:5200, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg"},
+        { brand: "Ceat" , model:"Zoom X3", size:"140/60R17", price:5250, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg"},
+        { brand: "Apollo" , model:"Aplha H1", size:"190/50ZR17", price:8000, image: "https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg"},
+        { brand: "MRF" , model:"Zapper Vyde", size:"190/50ZR17", price:8600, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg"},
+        { brand: "Ceat" , model:"RAD X1", size:"190/50ZR17", price:8700, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg"},
+        { brand: "Apollo" , model:"ActiGrip R1", size:"80/100R18", price:3200, image: "https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg"},
+        { brand: "MRF" , model:"Zapper FS", size:"80/100R18", price:3100, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg"},
+        { brand: "Ceat" , model:"Gripp X3", size:"80/100R18", price:3150, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg"},
+        { brand: "Apollo" , model:"Actizip S3", size:"90/90R10", price:2800, image: "https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg"},
+        { brand: "MRF" , model:"Nylogrip", size:"90/90R10", price:2700, image:"https://m.media-amazon.com/images/I/516XMsYkqXL.jpg"},
+        { brand: "Ceat",model: "Gripp X3",size:"90/90R10", price: 2750, image:"https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
+        {brand : "Apollo",model: "Actizip R4",size:"100/90R17", price: 4000, image:"https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg" },
+        { brand: "MRF" ,model:" Zapper FS " ,size:"100/90R17", price: 3900,image:"https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
+        { brand: "Ceat" ,model:" Zoom X3" ,size:"100/90R17", price: 3950, image:"https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
+        { brand: "Apollo",model:" Alpha H1" ,size:"150/60R17", price: 6000, image:"https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg" },
+        { brand: "MRF" , model:" Revz-S" , size:"150/60R17", price: 5900,image:"https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
+        { brand: "Ceat",model: "Zoom Rad",size:"150/60R17", price: 5950,image:"https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
+        { brand: "Apollo",model:"Alpha H1",size:"190/55ZR17", price: 9000,image:"https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg" },
+        { brand: "MRF", model:" Zapper Vyde",size: "190/55ZR17", price: 8800,image:"https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
+        { brand: "Ceat", model:" Rad X1" ,size: "190/55ZR17",price:8900,image:"https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg"},
+        { brand: "Ceat", model:" SecureDrive" ,size: "195/65R15",price:7750,image:"https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg"},
+        { brand: "Apollo", model:" tramplr XR" ,size: "140/17R17",price:4300,image:"https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg"},
+        { brand: "Apollo", model:"Alnac 4g " ,size: "185/55R16",price:8900,image:"https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg"},
+        { brand: " Apollo", model:" Apterra HP" ,size: "235/60R18",price:6000,image:"https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg"},
+        { brand: "MRF ", model:" Perfinza CLX1" ,size: "225/50R17",price:5500,image:"https://m.media-amazon.com/images/I/516XMsYkqXL.jpg"},
+        { brand: "Ceat", model:" Milaz lt" ,size: "145R12lt",price:4500,image:"https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg"},
+        { brand: "Ceat ", model:" Ceat 14" ,size: "175R14lt",price:5000,image:"https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg"},
+        { brand: "MRF", model:"Zigma CTP" ,size: "145R12LT",price:6000,image:"https://m.media-amazon.com/images/I/516XMsYkqXL.jpg"},
+        { brand: "MRF", model:"Savari LUG" ,size: "185R14LT",price:7320,image:"https://m.media-amazon.com/images/I/516XMsYkqXL.jpg"},
+        { brand: "Ceat", model:"Milaze ECO " ,size: "155R13lt",price:5000,image:"https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg"},
+        { brand: "Apollo", model:"perfinza " ,size: "225/50R17",price:6100,image:"https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg"},
      
   ];
+
+
+
 function updateBrands() {
     const vehicleType = document.getElementById("vehicleType").value;
     const brandSelect = document.getElementById("brand");
@@ -218,8 +234,8 @@ function checkout() {
     cart.length = 0; // Empty cart array
     updateCartDisplay(); // Refresh cart UI
     
-    if (typeof showSection === "function") {
-        showSection("payment-container");
+    if (typeof showHide === "function") {
+        showHide("payment-container");
     }
 }
 
@@ -302,13 +318,112 @@ function downloadReceipt() {
     doc.save("receipt.pdf");
 }
 
+
+// // Reuse the showSection function for login and signup forms
+// document.getElementById('loginBtn').addEventListener('click', function() {
+//     showSection('loginForm'); // Show the login form
+// });
+
+// document.getElementById('signupBtn').addEventListener('click', function() {
+//     showSection('registrationForm'); // Show the signup form
+// });
+
+
+// // Function to hide both forms
+// function hideForms() {
+//     document.getElementById('loginForm').style.display = 'none';
+//     document.getElementById('registrationForm').style.display = 'none';
+// }
+
+// // Hide forms on page load
+// document.addEventListener('DOMContentLoaded', function () {
+//     hideForms();
+// });
+
+// // Toggle between login and signup forms
+// document.getElementById('loginBtn').addEventListener('click', function() {
+//     document.getElementById('loginForm').style.display = 'block';
+//     document.getElementById('registrationForm').style.display = 'none';
+// });
+
+// document.getElementById('signupBtn').addEventListener('click', function() {
+//     document.getElementById('registrationForm').style.display = 'block';
+//     document.getElementById('loginForm').style.display = 'none';
+// });
+
+// // Optional: Hide forms when clicking outside of them
+// document.addEventListener('click', function (event) {
+//     const loginForm = document.getElementById('loginForm');
+//     const registrationForm = document.getElementById('registrationForm');
+//     const loginBtn = document.getElementById('loginBtn');
+//     const signupBtn = document.getElementById('signupBtn');
+
+//     if (
+//         !loginForm.contains(event.target) &&
+//         !registrationForm.contains(event.target) &&
+//         event.target !== loginBtn &&
+//         event.target !== signupBtn
+//     ) {
+//         hideForms();
+//     }
+// });
+
+// // Switch links inside forms
+// document.getElementById('switchToSignup').addEventListener('click', function(e) {
+//     e.preventDefault();
+//     document.getElementById('signupBtn').click();
+// });
+
+// document.getElementById('switchToLogin').addEventListener('click', function(e) {
+//     e.preventDefault();
+//     document.getElementById('loginBtn').click();
+// });
+
+// // Login form validation
+// document.getElementById('loginFormElement').addEventListener('submit', function(e) {
+//     e.preventDefault();
+//     const email = this.querySelector('input[name="email"]').value;
+//     const password = this.querySelector('input[name="password"]').value;
+    
+//     if (!email || !password) {
+//         alert('Please fill in all required fields');
+//         return;
+//     }
+    
+//     // Here you would typically send data to server
+//     alert('Login successful! (This is a demo)');
+//     this.submit();
+// });
+
+// // Registration form validation
+// document.getElementById('registrationFormElement').addEventListener('submit', function(e) {
+//     e.preventDefault();
+    
+//     const password = this.querySelector('input[name="password"]').value;
+//     const confirmPassword = this.querySelector('input[name="confirmPassword"]').value;
+    
+//     if (password !== confirmPassword) {
+//         alert('Passwords do not match!');
+//         return;
+//     }
+    
+//     if (password.length < 5 || password.length > 12) {
+//         alert('Password must be between 5 and 12 characters!');
+//         return;
+//     }
+    
+//     alert('Registration successful! (This is a demo)');
+//     this.submit();
+// });
+
+
 // Reuse the showSection function for login and signup forms
 document.getElementById('loginBtn').addEventListener('click', function() {
-    showSection('loginForm'); // Show the login form
+    showHide('loginForm'); // Show the login form
 });
 
 document.getElementById('signupBtn').addEventListener('click', function() {
-    showSection('registrationForm'); // Show the signup form
+    showHide('registrationForm'); // Show the signup form
 });
 
 
@@ -377,27 +492,6 @@ document.getElementById('loginFormElement').addEventListener('submit', function(
     alert('Login successful! (This is a demo)');
     this.submit();
 });
-
-// Registration form validation
-document.getElementById('registrationFormElement').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const password = this.querySelector('input[name="password"]').value;
-    const confirmPassword = this.querySelector('input[name="confirmPassword"]').value;
-    
-    if (password !== confirmPassword) {
-        alert('Passwords do not match!');
-        return;
-    }
-    
-    if (password.length < 5 || password.length > 12) {
-        alert('Password must be between 5 and 12 characters!');
-        return;
-    }
-    
-    alert('Registration successful! (This is a demo)');
-    this.submit();
-});
    
 
 //product page code
@@ -420,8 +514,9 @@ availableTyres.forEach(product => {
     const productImage = document.createElement('img');
     productImage.src = product.image;
     productImage.alt = product.name;
+    productImage.width = 200; // Set width in pixels
+    productImage.height = 200; // Set height in pixels
     productDiv.appendChild(productImage);
-
 
     const productPrice = document.createElement('h3');
     productPrice.textContent = product.price;
