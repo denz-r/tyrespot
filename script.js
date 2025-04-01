@@ -1,4 +1,4 @@
-function showSection(sectionId) {
+function showHide(sectionId) {
     let sections = document.querySelectorAll('.ShowHide');
     sections.forEach(section => section.style.display = "none");
     document.getElementById(sectionId).style.display = "block";
