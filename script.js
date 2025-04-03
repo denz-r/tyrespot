@@ -4,6 +4,7 @@ function showHide(sectionId) {
     document.getElementById(sectionId).style.display = "block";
 }
 
+
 const cart = JSON.parse(localStorage.getItem("cart")) || []; 
 const tyreData = {
     car: {
