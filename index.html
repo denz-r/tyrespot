@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +9,16 @@
 </head>
 <body>
     <header>
-       <b> THE TYPRESPOT</b>
-       <img src="" alt="logo" class="logo"
-       <p><i>Where grip meets the roads</i></p>
+        <div style="display: flex; align-items: center;">
+            <img src="logo.png" alt="logo" class="logo" width="200px" height="200px" style="margin-right: 20px;">
+            <div>
+                <b>THE TYPRESPOT</b>
+                <h1>The Tyre Shop</h1>
+                <h2>Best Tyres for Your Vehicle</h2>
+                <p><i>Where grip meets the roads</i></p>
+                <p><i>Where grip meets the roads</i></p>
+            </div>
+        </div>
         <nav>
             <div class="auth-buttons">
                 <button class="auth-btn login-btn active" id="loginBtn">Login</button>
@@ -26,10 +32,9 @@
                 <li><a href="#" onclick="showHide('CheckOut')">Cart</a></li>
                 <li><a href="#" onclick="showHide('about')">About Us</a></li>
                 <li><a href="#" onclick="showHide('contact')">Contact Us</a></li>
-                <li><a href="#" onclick="showHide('AddingTyre')">SellerSolution </a></li>
+                <li><a href="#" onclick="showHide('password')">SellerSolution </a></li>
             </ul>
         </nav>
-
     </header>
 
     <div class="container">
@@ -242,6 +247,13 @@
           <li><a href="https://www.instagram.com/the_tyre_spot_?igsh=MXZ4a3NlbG50NXBhMw==">Twitter</a></li>
         </ul>
       </div>
+
+
+      <div id = "password" class="ShowHide" style="display: none;">
+        <h1>Enter Password</h1>
+        <input type="password" id="passwordd" placeholder="Enter password" />
+        <button onclick="checkPassword()">Submit</button>
+    </div>
 
 
     <div id="AddingTyre" class="ShowHide" style="display: none;">
