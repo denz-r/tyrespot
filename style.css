@@ -8,11 +8,12 @@ body {
 }
 
 /* Target the main heading */
-h1 {
-    font-size: 100px; /* Increase the font size */
-    font-weight: bold; /* Optional: Make it bold */
+.heading {
+    font-family: 'Times New Roman', Times, serif;
+    font-size:larger; /* Increase the font size */
+    font-weight:bolder; /* Optional: Make it bold */
     text-align: center; /* Optional: Center the text */
-    color: #fffefe; /* Optional: Change the color */
+    color: #ffffff; /* Optional: Change the color */
 }
 
 header {

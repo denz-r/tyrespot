@@ -206,18 +206,6 @@ function removeFromCart(index) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 let lastTotal = 0; // Store the final total before checkout
 
 function checkout() {
@@ -331,102 +319,6 @@ function downloadReceipt() {
 }
 
 
-// // Reuse the showSection function for login and signup forms
-// document.getElementById('loginBtn').addEventListener('click', function() {
-//     showSection('loginForm'); // Show the login form
-// });
-
-// document.getElementById('signupBtn').addEventListener('click', function() {
-//     showSection('registrationForm'); // Show the signup form
-// });
-
-
-// // Function to hide both forms
-// function hideForms() {
-//     document.getElementById('loginForm').style.display = 'none';
-//     document.getElementById('registrationForm').style.display = 'none';
-// }
-
-// // Hide forms on page load
-// document.addEventListener('DOMContentLoaded', function () {
-//     hideForms();
-// });
-
-// // Toggle between login and signup forms
-// document.getElementById('loginBtn').addEventListener('click', function() {
-//     document.getElementById('loginForm').style.display = 'block';
-//     document.getElementById('registrationForm').style.display = 'none';
-// });
-
-// document.getElementById('signupBtn').addEventListener('click', function() {
-//     document.getElementById('registrationForm').style.display = 'block';
-//     document.getElementById('loginForm').style.display = 'none';
-// });
-
-// // Optional: Hide forms when clicking outside of them
-// document.addEventListener('click', function (event) {
-//     const loginForm = document.getElementById('loginForm');
-//     const registrationForm = document.getElementById('registrationForm');
-//     const loginBtn = document.getElementById('loginBtn');
-//     const signupBtn = document.getElementById('signupBtn');
-
-//     if (
-//         !loginForm.contains(event.target) &&
-//         !registrationForm.contains(event.target) &&
-//         event.target !== loginBtn &&
-//         event.target !== signupBtn
-//     ) {
-//         hideForms();
-//     }
-// });
-
-// // Switch links inside forms
-// document.getElementById('switchToSignup').addEventListener('click', function(e) {
-//     e.preventDefault();
-//     document.getElementById('signupBtn').click();
-// });
-
-// document.getElementById('switchToLogin').addEventListener('click', function(e) {
-//     e.preventDefault();
-//     document.getElementById('loginBtn').click();
-// });
-
-// // Login form validation
-// document.getElementById('loginFormElement').addEventListener('submit', function(e) {
-//     e.preventDefault();
-//     const email = this.querySelector('input[name="email"]').value;
-//     const password = this.querySelector('input[name="password"]').value;
-    
-//     if (!email || !password) {
-//         alert('Please fill in all required fields');
-//         return;
-//     }
-    
-//     // Here you would typically send data to server
-//     alert('Login successful! (This is a demo)');
-//     this.submit();
-// });
-
-// // Registration form validation
-// document.getElementById('registrationFormElement').addEventListener('submit', function(e) {
-//     e.preventDefault();
-    
-//     const password = this.querySelector('input[name="password"]').value;
-//     const confirmPassword = this.querySelector('input[name="confirmPassword"]').value;
-    
-//     if (password !== confirmPassword) {
-//         alert('Passwords do not match!');
-//         return;
-//     }
-    
-//     if (password.length < 5 || password.length > 12) {
-//         alert('Password must be between 5 and 12 characters!');
-//         return;
-//     }
-    
-//     alert('Registration successful! (This is a demo)');
-//     this.submit();
-// });
 
 
 // Reuse the showSection function for login and signup forms
