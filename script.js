@@ -243,6 +243,17 @@ function checkout() {
 // Ensure cart display updates on page load
 updateCartDisplay();
 
+function checkPassword() {
+    const passwordInput = document.getElementById('passwordd').value;
+    if (passwordInput === '1234') {
+        alert('Password correct! You can now click the button.');
+        document.getElementById("AddingTyre").style.display = "block";
+        document.getElementById("password").style.display = "none";
+    } else {
+        alert('Incorrect password. Try again.');
+    }
+}
+
 function addNewTyre() {
     const brand = document.getElementById("newTyreBrand").value;
     const model = document.getElementById("newTyreModel").value;
