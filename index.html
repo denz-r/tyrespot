@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
-<body> 
+<body>
     <header>
         <div style="display: flex; justify-content: center;">
-                <img src="logo.png" alt="logo" style="height: 100px; margin-right: 10px;">
-                <div>
-                    <h2 class="heading">THE TYPRESPOT</h2>
-                    <p><i>Where grip meets the roads</i></p>
-                </div>   
-        </div>
+            <img src="logo.png" alt="logo" style="height: 100px; margin-right: 10px;">
+            <div>
+                <h2 class="heading">THE TYPRESPOT</h2>
+                <p><i>Where grip meets the roads</i></p>
+            </div>   
+    </div>
         <nav>
             <div class="auth-buttons">
                 <button class="auth-btn login-btn active" id="loginBtn">Login</button>
@@ -37,6 +37,10 @@
     <div class="container">
        
         
+<!-- devang -->
+        
+        
+
         <!-- Login Form -->
         <div id="loginForm" class="form-container" style="display: none;">
             <h2>Log into your account</h2>
@@ -76,7 +80,7 @@
                         <td><label>Last Name</label></td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="mobile" placeholder="Enter phone number" maxlength="10"></td>
+                        <td><input type="text" name="mobile" required></td>
                         <td><input type="text" name="firstName" required></td>
                         <td><input type="text" name="lastName"></td>
                     </tr>
@@ -158,11 +162,9 @@
     </div>
 
     <div id="products" class="ShowHide" style="display: none;">
-        <div class="container">
+        <div class ="container">
             <h1>OUR PRODUCTS</h1>
-            <div class="product-list" id="product-list" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
-                <!-- Product items will be dynamically added here -->
-            </div>
+            <div class="product-list" id="product-list"></div>
         </div>
     </div>
 
@@ -219,6 +221,45 @@
             <button onclick="checkout()">Proceed to Checkout</button>
         </section>
     </div>
+
+    <div id="Address" class="ShowHide" style="display: none;">
+        <h2>Enter Your Shipping Address</h2>
+        <form id="addressForm">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="state">State:</label>
+            <select id="state" name="state" required>
+                <option value="">Select State</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                
+            </select>
+
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" name="pincode" required>
+
+        </form>
+        <button onclick="ShowPayment()">Save & Continue</button>
+    </div>
+
 
     <div id="payment-container" class="ShowHide" style="display: none;">
         <h2>Payment Gateway</h2>
@@ -293,4 +334,3 @@
     <script src="script.js" ></script>
 </body>
 </html>
-
