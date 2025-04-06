@@ -864,3 +864,21 @@ h1 {
     gap: 20px; /* Adds spacing between the boxes */
     width: 100%; /* Ensures the container spans the full width */
 }
+
+/* about us page */
+#about{
+    background-image: url(aboutus.avif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20 px;
+    text-align: center;
+}
+
+.about-container h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 200;
+    color: #ffffff;
+
+}
+
