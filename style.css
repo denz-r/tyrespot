@@ -142,12 +142,12 @@ footer {
 } 
 
 
-* {
+/* * {
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-}
+} */
 
 
 
@@ -452,32 +452,45 @@ nav ul li a:hover {
     background-color: #218838;
 }
 
-/* Container */
-.container {
-    padding: 20px;
-}
 
-/* Hero Section */
-.hero {
-    background-color: #007bff;
-    color: white;
+/* Hero Section*/
+.hero-content {
+    background-image: url(bgg.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: rgb(255, 250, 250);
     text-align: center;
-    padding: 50px;
+    padding: 100px;
+    
 }
 
-.hero h2 {
+
+li{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+ul{
+    list-style: none;
     font-size: 40px;
+    text-align: left;
+}
+
+.hero h3 {
+    color: #ffebeb;
+    font-size: 70px;
     margin-bottom: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .hero p {
     font-size: 20px;
     margin-bottom: 20px;
+    font-style: italic;
 }
 
 .cta-btn {
     padding: 15px 30px;
-    background-color: #28a745;
+    background-color: #75c287;
     color: white;
     font-size: 18px;
     border-radius: 4px;
@@ -485,7 +498,7 @@ nav ul li a:hover {
 
 .cta-btn:hover {
     background-color: #218838;
-}
+} 
 
 /* Forms */
 .form-container {
@@ -721,5 +734,133 @@ footer p {
 }
 
 .contact-page button:hover {
-    background: #0056b3;
+    background: #7aeebd;
+}
+
+
+/*home page*/
+.hero2 {
+    background-color: #ddecfb; 
+    text-align: center; /* Centers the text */
+    padding: 20px;
+    
+}
+    
+.hero2 h3 {
+    font-size: 60px; 
+    color: #504040; 
+    margin-bottom: 50px; /* Adds spacing below the heading */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.hero2 p {
+    font-size: 20px; 
+    color: #555; /* Medium gray for the paragraph text */
+    line-height: 1.6; 
+    margin-bottom: 20px; /* Adds spacing below the paragraph */
+}
+
+.hero2 button {
+    padding: 10px 20px; 
+    background-color: #50d1ed; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+}
+
+.hero2 button:hover {
+    background-color: #5980aa; /* Darker blue on hover */
+}
+
+  
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+  }
+
+  .icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+  }
+
+
+  .box1, .box2 {
+    width: 280px;
+    max-width: 45%;
+    background-color: rgba(197, 157, 165, 0.57);
+    /* margin-left: 50px; */
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+    flex: 1;
+  }
+
+  .box1 h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 10px;
+    padding: 20px;
+  }
+
+  .box2 h3 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 10px 10px;
+    padding: 20px;
+  }
+
+  .box1 p {
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    color: #242323;
+    margin: 10px 10px;
+    padding: 20px;
+  }
+
+ .box2 p {
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    color: #242323;
+    margin: 10px 10px;
+    padding: 20px;
+  }
+
+.boxes {
+    background-image: url(bgbg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex; /* Enables Flexbox */
+    flex-direction: column;
+    /* justify-content: space-around; Adds space between the boxes */
+    align-items: center; /* Aligns items vertically */
+    /* flex-wrap: wrap; Ensures boxes wrap to the next line on smaller screens */
+    gap: 20px; /* Adds spacing between the boxes */
+    padding: 20px; /* Adds padding around the container */
+}
+.boxes-heading {
+    font-size: 45px; /* Adjust the font size */
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold; /* Make the text bold */
+    color: #edebeb; /* Dark gray color */
+    text-align: center; /* Center the heading */
+    margin-bottom: 30px; /* Add spacing below the heading */
+    text-transform: uppercase; /* Optional: Make the text uppercase */
+}
+
+.box-container {
+    display: flex; /* Enables Flexbox for the boxes */
+    justify-content: space-around; /* Adds space between the boxes */
+    flex-wrap: wrap; /* Ensures boxes wrap to the next line on smaller screens */
+    gap: 20px; /* Adds spacing between the boxes */
+    width: 100%; /* Ensures the container spans the full width */
 }

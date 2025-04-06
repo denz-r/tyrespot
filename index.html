@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
-<body>
-    <header>
+<body> 
+     <header>
         <div style="display: flex; justify-content: center;">
-            <img src="logo.png" alt="logo" style="height: 100px; margin-right: 10px;">
-            <div>
-                <h2 class="heading">THE TYPRESPOT</h2>
-                <p><i>Where grip meets the roads</i></p>
-            </div>   
-    </div>
+                <img src="logo.png" alt="logo" style="height: 100px; margin-right: 10px;">
+                <div>
+                    <h2 class="heading">THE TYRESPOT</h2>
+                    <p><i>Where grip meets the road</i></p>
+                </div>   
+        </div>
+        <img src="cart-shopping-solid.svg" alt="Cart" id="cartIcon" height="40px" width="40px" style="margin-left: 95%; cursor: pointer;"/>
         <nav>
             <div class="auth-buttons">
                 <button class="auth-btn login-btn active" id="loginBtn">Login</button>
@@ -29,18 +30,16 @@
                 <li><a href="#" onclick="showHide('CheckOut')">Cart</a></li>
                 <li><a href="#" onclick="showHide('about')">About Us</a></li>
                 <li><a href="#" onclick="showHide('contact')">Contact Us</a></li>
-                <li><a href="#" onclick="showHide('password')">SellerSolution </a></li>
+                <li><a href="#" onclick="showHide('password')">Dealer's Solution</a></li> 
             </ul>
         </nav>
-    </header>
+    </header> 
+
+    
 
     <div class="container">
        
         
-<!-- devang -->
-        
-        
-
         <!-- Login Form -->
         <div id="loginForm" class="form-container" style="display: none;">
             <h2>Log into your account</h2>
@@ -80,7 +79,7 @@
                         <td><label>Last Name</label></td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="mobile" required></td>
+                        <td><input type="text" name="mobile" placeholder="Enter phone number" maxlength="10" required></td>
                         <td><input type="text" name="firstName" required></td>
                         <td><input type="text" name="lastName"></td>
                     </tr>
@@ -91,8 +90,8 @@
                     </tr>
                     <tr>
                         <td><input type="email" name="email" required></td>
-                        <td><input type="text" name="pincode"></td>
-                        <td><input type="text" name="city"></td>
+                        <td><input type="text" name="pincode" required></td>
+                        <td><input type="text" name="city" required></td>
                     </tr>
                     <tr>
                         <td><label>Select State</label></td>
@@ -104,6 +103,7 @@
                             <select name="state">
                                 <option value="">Select State</option>
                                 <option value="delhi">Delhi</option>
+                                <option value="Goa">Goa</option>
                                 <option value="maharashtra">Maharashtra</option>
                             </select>
                         </td>
@@ -122,7 +122,7 @@
                     </tr>
                 </table>
                 
-                <p class="note">Nota: Password require minimum 5 characters and Maximum 12 characters.</p>
+                <p class="note">Note: Password require minimum 5 characters and Maximum 12 characters.</p>
                 <p class="required-note">* Required Fields</p>
                 
                 <button type="submit" class="btn-submit">Register</button>
@@ -134,14 +134,48 @@
         </div>
     </div> 
 
+
+<!-- home page -->
     <div id="home" class="ShowHide" style="display: block;">
-        <section class="hero">
+        <!-- <section class="hero"> -->
             <div class="hero-content">
-            <h2>Quality Tires for Every Road</h2>
-            <p>Choose the best for your vehicle. We offer premium tires for all types of cars and roads.</p>
-            <!-- <a href="#" class="cta-btn">Shop Now</a> -->
+                <ul>
+                    <li>&#10004; Tyres For All Types Of Vehicles</li>
+                    <li>&#10004; Wide Range Of Durable & Long Lasting Tyres</li>
+                    <li>&#10004; 100% Genuine Branded Tyres</li>
+                    <li>&#10004; Attractive Prices</li>
+                    <li>&#10004; Full Payment Security</li>
+                    <li>&#10004; Backed By Brand Assurance & Warranty</li>
+                </ul>
+            </div>
+                
+        <!-- </section> -->
+            <div class="hero2">
+                    <h3>Quality Tires for Every Road</h3>
+                    <p>Choose the best for your vehicle. We offer premium tires for all types of cars and roads.</p> 
+                    <h3>Reliable, Durable & Affordable</h3>
+                    <p>Whether you're driving in the city, off-road, or on the highway — we've got tyres that guarantee safety, performance, and longevity</p>
+                    <button onclick="showHide('products')" class="cta-btn">View Products</button>  
+            </div> 
+
+            
+        <div class="boxes">  
+            <h1 class="boxes-heading">How Does The TyreSpot Work?</h1>
+                <div class="box-container">
+                    <div class="box1">
+                        <img src="tyre.png" alt="Tyre Icon" class="icon">
+                        <h3>FIND THE RIGHT TYRES</h3>
+                        <p>Choose from a wide range of tyre brands</p>
+                    </div>
+
+    
+                    <div class="box2">
+                        <img src="free-shipping.png" alt="Home Delivery Icon" class="icon">
+                        <h3>GET DOOR-STEP DELIVERY FOR FREE</h3>
+                        <p>Get your tyres delivered at your door-step usually in 5 to 8 business days*</p>
+                    </div>
+                </div>
         </div>
-        </section>
     
    
       <!-- Footer Section -->
@@ -161,10 +195,13 @@
 
     </div>
 
+    <!-- product page -->
     <div id="products" class="ShowHide" style="display: none;">
-        <div class ="container">
+        <div class="container">
             <h1>OUR PRODUCTS</h1>
-            <div class="product-list" id="product-list"></div>
+            <div class="product-list" id="product-list" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                <!-- Product items will be dynamically added here -->
+            </div>
         </div>
     </div>
 
@@ -222,7 +259,7 @@
         </section>
     </div>
 
-    <div id="Address" class="ShowHide" style="display: none;">
+    <!-- <div id="Address" class="ShowHide" style="display: none;">
         <h2>Enter Your Shipping Address</h2>
         <form id="addressForm">
             <label for="fullName">Full Name:</label>
@@ -258,8 +295,58 @@
 
         </form>
         <button onclick="ShowPayment()">Save & Continue</button>
-    </div>
+    </div> -->
 
+
+    <!-- Shipping Address Section -->
+<div id="Address" class="ShowHide" style="display: none;">
+    <h2>Enter Your Shipping Address</h2>
+    <form id="addressForm" onsubmit="event.preventDefault(); ShowPayment();">
+        <div class="form-group">
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+        </div>
+
+        <div class="form-group">
+            <label for="state">State:</label>
+            <select id="state" name="state" required>
+                <option value="">Select State</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="pincode">Pincode:</label>
+            <input type="text" id="pincode" name="pincode" pattern="[0-9]{6}" required>
+        </div>
+
+        <button type="submit">Save & Continue</button>
+    </form>
+</div>
 
     <div id="payment-container" class="ShowHide" style="display: none;">
         <h2>Payment Gateway</h2>
@@ -334,3 +421,4 @@
     <script src="script.js" ></script>
 </body>
 </html>
+

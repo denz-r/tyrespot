@@ -436,3 +436,56 @@ availableTyres.forEach(product => {
 
 
 });
+
+// JavaScript to handle the address form and show the payment section
+function ShowPayment() {
+    const form = document.getElementById('addressForm');
+
+    // Validate form inputs
+    if (form.checkValidity()) {
+        const formData = {
+            fullName: document.getElementById('fullName').value,
+            phoneNumber: document.getElementById('phoneNumber').value,
+            address: document.getElementById('address').value,
+            city: document.getElementById('city').value,
+            state: document.getElementById('state').value,
+            pincode: document.getElementById('pincode').value
+        };
+
+        console.log("Shipping Details:", formData); // Debug or use it later
+
+        // Hide address form
+        document.getElementById('Address').style.display = 'none';
+
+        // Show payment section
+        const paymentSection = document.getElementById('Payment');
+        if (paymentSection) {
+            paymentSection.style.display = 'block';
+        }
+    } else {
+        // Highlight validation errors
+        form.reportValidity();
+    }
+}
+
+//address reagan
+function ShowPayment() {
+    const requiredFields = ['fullName', 'phoneNumber', 'address', 'city', 'state', 'pincode'];
+    let allFilled = true;
+
+    requiredFields.forEach(id => {
+        const field = document.getElementById(id);
+        if (!field || !field.value.trim()) {
+            allFilled = false;
+            field.style.border = '2px solid red';
+        } else {
+            field.style.border = '';
+        }
+    });
+
+    if (allFilled) {
+        showHide('payment-container');
+    } else {
+        alert('Please fill in all required address fields.');
+    }
+}
