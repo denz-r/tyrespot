@@ -1,4 +1,6 @@
-
+*{
+    font-family: "Lato", sans-serif;
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -693,7 +695,8 @@ footer p {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 500px;
-    
+    margin-left:500px;
+    margin-top:50px;
 }
 
 .contact-page .form-group {
@@ -879,6 +882,23 @@ h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 200;
     color: #ffffff;
-
 }
 
+
+/* header part cart */
+#cartIcon{
+    margin-top:-60px;
+}
+
+
+.abt{
+    font-size: small;
+    align-items: center;
+    color:#ccc ;
+    margin-left: 500px;
+    padding: 20px;
+}
+
+.about1 , .about2 , .about3{
+
+}
