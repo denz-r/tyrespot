@@ -436,3 +436,53 @@ availableTyres.forEach(product => {
 
 
 });
+function ShowPayment() {
+    const fullName = document.getElementById('fullName').value.trim();
+    const phoneNumber = document.getElementById('phoneNumber').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const city = document.getElementById('city').value.trim();
+    const state = document.getElementById('state').value.trim();
+    const pincode = document.getElementById('pincode').value.trim();
+
+    if (!fullName || !phoneNumber || !address || !city || !state || !pincode) {
+        alert("Please fill in all the fields.");
+        return;
+    }
+
+    // Hide address form, show payment section
+    document.getElementById('Address').style.display = 'none';
+    document.getElementById('payment-container').style.display = 'block';
+}
+document.getElementById("shippingForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+  
+    const shippingData = {
+      fullName: document.getElementById("fullName").value,
+      phone: document.getElementById("phone").value,
+      address: document.getElementById("address").value,
+      city: document.getElementById("city").value,
+      state: document.getElementById("state").value,
+      pincode: document.getElementById("pincode").value,
+    };
+  
+    // Save to localStorage so payment page can access it
+    localStorage.setItem("shippingAddress", JSON.stringify(shippingData));
+  
+    // Redirect to payment page
+    window.location.href = "payment.html";
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+    const container = document.getElementById("showAddress");
+    const address = JSON.parse(localStorage.getItem("shippingAddress"));
+  
+    if (address && container) {
+      container.innerHTML = `
+        <strong>${address.fullName}</strong><br>
+        ${address.address}, ${address.city}, ${address.state} - ${address.pincode}<br>
+        Phone: ${address.phone}
+      `;
+    } else if (container) {
+      container.innerHTML = `<em>No address found. Please go back to fill shipping details.</em>`;
+    }
+  });
+  
