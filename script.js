@@ -354,7 +354,7 @@ document.getElementById('signupBtn').addEventListener('click', function() {
 });
 
 
-// Optional: Hide forms when clicking outside of them
+//  Hide forms when clicking outside of them
 document.addEventListener('click', function (event) {
     const loginForm = document.getElementById('loginForm');
     const registrationForm = document.getElementById('registrationForm');
