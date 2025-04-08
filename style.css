@@ -366,7 +366,7 @@ hr {
 
 
 /* General Styles */
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -376,7 +376,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
-}
+} */
 
 a {
     text-decoration: none;
@@ -870,11 +870,11 @@ h1 {
 
 /* about us page */
 #about{
-    background-image: url(aboutus.avif);
+    background-image: url(tire.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding: 20 px;
+    padding: 20px;
     text-align: center;
 }
 
@@ -892,13 +892,44 @@ h1 {
 
 
 .abt{
-    font-size: small;
-    align-items: center;
-    color:#ccc ;
-    margin-left: 500px;
-    padding: 20px;
+    font-size: medium;
+    text-align: center;
+    color:#000000 ;
+    margin: auto;
+    font-size: large;
+    font-weight: bold;
+    /* padding: 10px; */
+}
+
+.para{
+    color: rgb(29, 23, 23);
+    font-size: large;
+    font-weight: bold;
+} 
+
+.head{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(255, 255, 255);
+    font-size: larger;
+    font-weight: bolder;
+    font-weight: 200;
 }
 
 .about1 , .about2 , .about3{
+    width: 900px;
+    max-width: 55%;
+    background-color: rgba(197, 157, 165, 0.57);
+    margin:auto; 
+    border-radius: 20px;
+    text-align: center;
+    /* flex: 1; */
+    padding: 10px;
+    
+}
 
+.about-container {
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; /* Adds 20px of space between the divs */
+    /* align-items: center; Centers the divs horizontally */
 }

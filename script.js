@@ -353,22 +353,6 @@ document.getElementById('signupBtn').addEventListener('click', function() {
     document.getElementById('loginForm').style.display = 'none';
 });
 
-// Optional: Hide forms when clicking outside of them
-document.addEventListener('click', function (event) {
-    const loginForm = document.getElementById('loginForm');
-    const registrationForm = document.getElementById('registrationForm');
-    const loginBtn = document.getElementById('loginBtn');
-    const signupBtn = document.getElementById('signupBtn');
-
-    if (
-        !loginForm.contains(event.target) &&
-        !registrationForm.contains(event.target) &&
-        event.target !== loginBtn &&
-        event.target !== signupBtn
-    ) {
-        hideForms();
-    }
-});
 
 // Switch links inside forms
 document.getElementById('switchToSignup').addEventListener('click', function(e) {
@@ -393,7 +377,7 @@ document.getElementById('loginFormElement').addEventListener('submit', function(
     }
     
     // Here you would typically send data to server
-    alert('Login successful! (This is a demo)');
+    alert('Login successful!');
     this.submit();
 });
    
