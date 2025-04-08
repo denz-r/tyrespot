@@ -144,14 +144,6 @@ footer {
 } 
 
 
-/* * {
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-} */
-
-
 
 /* Auth buttons styles */
 .auth-buttons {
@@ -178,7 +170,7 @@ footer {
 
 .signup-btn {
     background-color: #4CAF50;
-    color: white;
+    color: white; 
 }
 
 .auth-btn:hover {
@@ -331,7 +323,7 @@ hr {
 
 .forgot-password a:hover {
     text-decoration: underline;
-}
+} 
 
 
 
@@ -341,30 +333,7 @@ hr {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 /* General Styles */
 /* * {
     margin: 0;
@@ -503,7 +472,7 @@ ul{
 } 
 
 /* Forms */
-.form-container {
+ .form-container {
     background-color: white;
     padding: 20px;
     border-radius: 4px;
@@ -512,6 +481,12 @@ ul{
 
 .form-group {
     margin-bottom: 20px;
+    width: 50%;
+    text-align: left;
+}
+
+.form-group{
+    padding: 10px;
 }
 
 label {
@@ -543,6 +518,18 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #0056b3;
 }
+
+.form-table {
+    border-spacing:  20px 0; /* Adds 20px of space between columns */
+    width: 80%; /* Optional: Makes the table span the full width */
+    text-align: left; /* Aligns text to the left */
+}
+
+.form-table td {
+    padding: 10px; /* Adds padding inside each cell */
+}
+
+
 
 /* Footer */
 footer {
@@ -580,7 +567,7 @@ footer {
 
 .social-links a:hover {
     color: #ddd;
-}
+} 
 
 /* ShowHide Sections */
 .ShowHide {
@@ -933,3 +920,14 @@ h1 {
     gap: 20px; /* Adds 20px of space between the divs */
     /* align-items: center; Centers the divs horizontally */
 }
+
+
+
+/* .form-table {
+    border-spacing: 0 20px; 
+    width: 50%; 
+    text-align: left;
+
+.form-table td {
+    padding: 10px; /* Adds padding inside each cell 
+} */

@@ -49,18 +49,24 @@
             
             <form id="loginFormElement">
                 <div class="form-group">
-                    <label class="required-field">Email</label>
-                    <input type="email" name="email" required>
+                    <tr>
+                        <label class="required-field" >Email</label>
+                        <input type="email" name="email" required> 
+                    </tr>
                 </div>
                 
                 <div class="form-group">
-                    <label class="required-field">Password</label>
-                    <input type="password" name="password" required>
+                    <tr>
+                        <label class="required-field">Password</label>
+                        <input type="password" name="password" required>
+                    </tr>
+                    <!-- <label class="required-field">Password</label>
+                    <input type="password" name="password" required> -->
                 </div>
                 
-                <div class="forgot-password">
+                <!-- <div class="forgot-password">
                     <a href="#">Forgot your password?</a>
-                </div>
+                </div> -->
                 
                 <button type="submit" class="btn-submit">Login</button>
                 
@@ -77,51 +83,61 @@
             <form id="registrationFormElement">
                 <table class="form-table">
                     <tr>
-                        <td><label class="required-field">Mobile</label></td>
-                        <td><label class="required-field">First Name</label></td>
-                        <td><label>Last Name</label></td>
+                        <td><label class="required-field">Full Name</label></td>
                     </tr>
                     <tr>
-                        <td><input type="number" name="mobile" placeholder="Enter phone number" maxlength="10" pattern="\d{10}" required></td>
-                        <td><input type="text" name="firstName" required></td>
-                        <td><input type="text" name="lastName"></td>
+                        <td><input type="text" name="fullName" placeholder="Enter full name" required></td>
                     </tr>
                     <tr>
+                        <td><label class="required-field">Phone Number</label></td>
                         <td><label class="required-field">Email</label></td>
-                        <td><label>Pin code</label></td>
-                        <td><label>City</label></td>
                     </tr>
                     <tr>
-                        <td><input type="email" name="email" required></td>
-                        <td><input type="text" name="pincode" required></td>
-                        <td><input type="text" name="city" required></td>
+
+                        <td><input type="tel" name="phone" maxlength="10" pattern="\d{10}" inputmode="numeric" placeholder="Enter your phone number" required></td>
+
+                        <td><input type="email" name="email" placeholder="Enter email" required></td>
                     </tr>
                     <tr>
+                        <td><label class="required-field">Address</label></td>
+                        <td><label class="required-field">Pin code</label></td>
+                        <td><label class="required-field">City</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="address" placeholder="Enter address"></td>
+                        <!-- <td><input type="number" inputmode="numeric" name="pincode" placeholder="Enter pincode" maxlength="6" pattern="\d{6}"></td> -->
+                        <td><input type="text" name="pincode" maxlength="6" pattern="\d{6}" inputmode="numeric" placeholder="Enter your pincode" required></td>
+                        <td><input type="text" name="city" placeholder="Enter city" required></td>
+                    </tr>
+                    <tr>
+                        
                         <td><label>Select State</label></td>
                         <td><label>Country</label></td>
-                        <td><label>Address</label></td>
                     </tr>
                     <tr>
-                        <td>
+                        <td> 
                             <select name="state">
                                 <option value="">Select State</option>
                                 <option value="delhi">Delhi</option>
                                 <option value="Goa">Goa</option>
                                 <option value="maharashtra">Maharashtra</option>
+                                <option value="karnataka">Karnataka</option>
+                                <option value="uttarpradesh">UttarPradesh</option>
                             </select>
                         </td>
                         <td><input type="text" name="country" value="India" readonly></td>
-                        <td><input type="text" name="address"></td>
                     </tr>
                     <tr>
                         <td><label class="required-field">Password</label></td>
-                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" name="password" required minlength="5" maxlength="12" placeholder="Enter a strong password"></td>
+                    </tr>
+                    <tr>
                         <td><label class="required-field">Confirm Password</label></td>
                     </tr>
                     <tr>
-                        <td><input type="password" name="password" required minlength="5" maxlength="12"></td>
-                        <td></td>
-                        <td><input type="password" name="confirmPassword" required minlength="5" maxlength="12"></td>
+                        <td><input type="password" name="confirmPassword" required minlength="5" maxlength="12" placeholder="confirm your password"></td>
                     </tr>
                 </table>
                 
