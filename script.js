@@ -354,6 +354,26 @@ document.getElementById('signupBtn').addEventListener('click', function() {
 });
 
 
+// document.getElementById("mobile").addEventListener("input", function (e) {
+//     this.value = this.value.replace(/\D/g, ""); // Remove non-digit characters
+// });
+// Optional: Hide forms when clicking outside of them
+document.addEventListener('click', function (event) {
+    const loginForm = document.getElementById('loginForm');
+    const registrationForm = document.getElementById('registrationForm');
+    const loginBtn = document.getElementById('loginBtn');
+    const signupBtn = document.getElementById('signupBtn');
+
+    if (
+        !loginForm.contains(event.target) &&
+        !registrationForm.contains(event.target) &&
+        event.target !== loginBtn &&
+        event.target !== signupBtn
+    ) {
+        hideForms();
+    }
+});
+
 // Switch links inside forms
 document.getElementById('switchToSignup').addEventListener('click', function(e) {
     e.preventDefault();
