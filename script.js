@@ -354,9 +354,6 @@ document.getElementById('signupBtn').addEventListener('click', function() {
 });
 
 
-// document.getElementById("mobile").addEventListener("input", function (e) {
-//     this.value = this.value.replace(/\D/g, ""); // Remove non-digit characters
-// });
 // Optional: Hide forms when clicking outside of them
 document.addEventListener('click', function (event) {
     const loginForm = document.getElementById('loginForm');
@@ -403,43 +400,103 @@ document.getElementById('loginFormElement').addEventListener('submit', function(
    
 
 //product page code
+// const productListElement = document.getElementById('product-list');
+
+// availableTyres.forEach(product => {
+//     const productDiv = document.createElement('div');
+//     productDiv.classList.add('product');
+
+//     const productName = document.createElement('h2');
+//     productName.textContent = product.brand;
+//     productDiv.appendChild(productName);
+
+//     const productModel = document.createElement('h3');
+//     productModel.textContent = product.model;
+//     const productSize = document.createElement('p');
+//     productSize.textContent = product.size;
+//     productDiv.appendChild(productModel); 
+//     productDiv.appendChild(productSize);
+
+//     const productImage = document.createElement('img');
+//     productImage.src = product.image;
+//     productImage.alt = product.name;
+//     productImage.width = 200; // Set width in pixels
+//     productImage.height = 200; // Set height in pixels
+//     productDiv.appendChild(productImage);
+
+//     const productPrice = document.createElement('h3');
+//     productPrice.textContent = product.price;
+//     productDiv.appendChild(productPrice);
+
+//     const addToCartButton = document.createElement('button');
+//     addToCartButton.textContent = 'Add to Cart';
+//     addToCartButton.addEventListener('click', () => addToCart(product));
+//     productDiv.appendChild(addToCartButton);
+
+
+//     productListElement.appendChild(productDiv);
+
+
+// });
+
 const productListElement = document.getElementById('product-list');
+const searchBox = document.getElementById('search-box');
 
-availableTyres.forEach(product => {
-    const productDiv = document.createElement('div');
-    productDiv.classList.add('product');
+// This function displays filtered tyres
+function displayProducts(products) {
+    productListElement.innerHTML = ''; // Clear existing products
 
-    const productName = document.createElement('h2');
-    productName.textContent = product.brand;
-    productDiv.appendChild(productName);
+    products.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.classList.add('product');
 
-     const productModel = document.createElement('h3');
-     productModel.textContent = product.model;
-    productDiv.appendChild(productModel); 
+        const productName = document.createElement('h2');
+        productName.textContent = product.brand;
+        productDiv.appendChild(productName);
 
+        const productModel = document.createElement('h3');
+        productModel.textContent = product.model;
+        const productSize = document.createElement('p');
+        productSize.textContent = product.size;
+        productDiv.appendChild(productModel);
+        productDiv.appendChild(productSize);
 
-    
-    const productImage = document.createElement('img');
-    productImage.src = product.image;
-    productImage.alt = product.name;
-    productImage.width = 200; // Set width in pixels
-    productImage.height = 200; // Set height in pixels
-    productDiv.appendChild(productImage);
+        const productImage = document.createElement('img');
+        productImage.src = product.image;
+        productImage.alt = `${product.brand} ${product.model}`;
+        productImage.width = 200;
+        productImage.height = 200;
+        productDiv.appendChild(productImage);
 
-    const productPrice = document.createElement('h3');
-    productPrice.textContent = product.price;
-    productDiv.appendChild(productPrice);
+        const productPrice = document.createElement('h3');
+        productPrice.textContent = `₹${product.price}`;
+        productDiv.appendChild(productPrice);
 
-    const addToCartButton = document.createElement('button');
-    addToCartButton.textContent = 'Add to Cart';
-    addToCartButton.addEventListener('click', () => addToCartt(product));
-    productDiv.appendChild(addToCartButton);
+        const addToCartButton = document.createElement('button');
+        addToCartButton.textContent = 'Add to Cart';
+        addToCartButton.addEventListener('click', () =>
+            addToCart(product.brand, product.model, product.size, product.price, product.image)
+        );
+        productDiv.appendChild(addToCartButton);
 
+        productListElement.appendChild(productDiv);
+    });
+}
 
-    productListElement.appendChild(productDiv);
+// Initial display
+displayProducts(availableTyres);
 
-
+// Search filter logic
+searchBox.addEventListener('input', () => {
+    const query = searchBox.value.toLowerCase();
+    const filtered = availableTyres.filter(product =>
+        product.brand.toLowerCase().includes(query) ||
+        product.model.toLowerCase().includes(query) ||
+        product.size.toLowerCase().includes(query)
+    );
+    displayProducts(filtered);
 });
+
 
 // JavaScript to handle the address form and show the payment section
 function ShowPayment() {
@@ -479,7 +536,7 @@ function ShowPayment() {
 
     requiredFields.forEach(id => {
         const field = document.getElementById(id);
-        if (!field || !field.value.trim()) {
+        if (!field || !field.value.trim( )) {
             allFilled = false;
             field.style.border = '2px solid red';
         } else {

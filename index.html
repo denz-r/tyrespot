@@ -20,6 +20,9 @@
                 </div>   
         </div>
 
+        <li><a href="#" onclick="showHide('CheckOut')"><img src="cart-shopping-solid.svg" alt="Cart" id="cartIcon" height="40px" width="40px" style="margin-left: 95%; cursor: pointer;"/></a></li>
+
+
         <nav>
             <div class="auth-buttons">
                 <button class="auth-btn login-btn active" id="loginBtn">Login</button>
@@ -30,7 +33,6 @@
                 <li><a href="#" onclick="showHide('products')">Products</a></li>
                 <li><a href="#" onclick="showHide('ShopByVehicle')">Search by Vehicle</a></li>
                 <li><a href="#" onclick="showHide('ShopBySize')">Search by Size</a></li>
-                <li><a href="#" onclick="showHide('CheckOut')">        <img src="cart-shopping-solid.svg" alt="Cart" id="cartIcon" height="40px" width="40px" style="margin-left: 95%; cursor: pointer;"/></a></li>
                 <li><a href="#" onclick="showHide('about')">About Us</a></li>
                 <li><a href="#" onclick="showHide('contact')">Contact Us</a></li>
                 <li><a href="#" onclick="showHide('password')">Dealer's Solution</a></li> 
@@ -183,8 +185,12 @@
     <div id="products" class="ShowHide" style="display: none;">
         <div class="container">
             <h1>OUR PRODUCTS</h1>
+            <div>
+                <h1>Search Tyres</h1>
+                <input type="text" id="search-box" placeholder="Search by brand, model or size">  
+            </div>
             <div class="product-list" id="product-list" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
-                <!-- Product items will be dynamically added here -->
+                <!-- Product items will be dynamically added here -->   
             </div>
         </div>
     </div>
