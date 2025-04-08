@@ -354,9 +354,6 @@ document.getElementById('signupBtn').addEventListener('click', function() {
 });
 
 
-// document.getElementById("mobile").addEventListener("input", function (e) {
-//     this.value = this.value.replace(/\D/g, ""); // Remove non-digit characters
-// });
 // Optional: Hide forms when clicking outside of them
 document.addEventListener('click', function (event) {
     const loginForm = document.getElementById('loginForm');
