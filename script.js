@@ -88,14 +88,15 @@ const tyreData = {
 
 
 
+
 function updateBrands() {
     const vehicleType = document.getElementById("vehicleType").value;
     const brandSelect = document.getElementById("brand");
-    brandSelect.innerHTML = `<option value="">Select Brand</option>`;
+    brandSelect.innerHTML = '<option value="">Select Brand</option>';
     
     if (vehicleType && tyreData[vehicleType]) {
-        Object.keys(tyreData[vehicleType]).forEach(brand => {
-            brandSelect.innerHTML += `<option value="${brand}">${brand}</option>`;
+        Object.keys(tyreData[vehicleType]).forEach(function(brand) {
+            brandSelect.innerHTML += '<option value="' + brand + '">' + brand + '</option>';
         });
     }
     updateModels();
@@ -105,11 +106,11 @@ function updateModels() {
     const vehicleType = document.getElementById("vehicleType").value;
     const brand = document.getElementById("brand").value;
     const modelSelect = document.getElementById("model");
-    modelSelect.innerHTML = `<option value="">Select Model</option>`;
+    modelSelect.innerHTML = '<option value="">Select Model</option>';
 
     if (vehicleType && brand && tyreData[vehicleType][brand]) {
-        Object.keys(tyreData[vehicleType][brand]).forEach(model => {
-            modelSelect.innerHTML += `<option value="${model}">${model}</option>`;
+        Object.keys(tyreData[vehicleType][brand]).forEach(function(model) {
+            modelSelect.innerHTML += '<option value="' + model + '">' + model + '</option>';
         });
     }
 }
@@ -129,40 +130,47 @@ function suggestTyres() {
     }
 
     const size = tyreData[vehicleType][brand][model];
-    const matchingTyres = availableTyres.filter(tyre => tyre.size === size);
+    const matchingTyres = availableTyres.filter(function(tyre) {
+        return tyre.size === size;
+    });
 
     if (matchingTyres.length > 0) {
-        matchingTyres.forEach(tyre => {
-            resultsDiv.innerHTML += `
-                <div>
-                    <img src="${tyre.image}" alt="${tyre.model}" width="100">
-                    <p>${tyre.brand} ${tyre.model} - ${tyre.size} - ₹${tyre.price}</p>
-                    <button onclick='addToCart("${tyre.brand}", "${tyre.model}", "${tyre.size}", ${tyre.price}, "${tyre.image}")'>Add to Cart</button>
-                </div>
-            `;
+        matchingTyres.forEach(function(tyre) {
+            resultsDiv.innerHTML +=
+                '<div>' +
+                '<img src="' + tyre.image + '" alt="' + tyre.model + '" width="100">' +
+                '<p>' + tyre.brand + ' ' + tyre.model + ' - ' + tyre.size + ' - ₹' + tyre.price + '</p>' +
+                '<button onclick=\'addToCart("' + tyre.brand + '", "' + tyre.model + '", "' + tyre.size + '", ' + tyre.price + ', "' + tyre.image + '")\'>Add to Cart</button>' +
+                '</div>';
         });
     } else {
         resultsDiv.innerHTML = "<p>No tyres available for this selection.</p>";
     }
+
     document.getElementById("SuggestedTyres").style.display = "block";
 }
 
 function searchBySize() {
     const tyreSize = document.getElementById("tyre-size").value.trim();
     const resultsDiv = document.getElementById("results");
-    resultsDiv.innerHTML = `<p>Searching for tyres of size ${tyreSize}...</p>`;
+    resultsDiv.innerHTML = "<p>Searching for tyres of size " + tyreSize + "...</p>";
     
-    setTimeout(() => {
-        const filteredTyres = availableTyres.filter(tyre => tyre.size === tyreSize);
+    setTimeout(function() {
+        const filteredTyres = availableTyres.filter(function(tyre) {
+            return tyre.size === tyreSize;
+        });
+
         if (filteredTyres.length > 0) {
-            let tyreList = filteredTyres.map(tyre => 
-                `<div><img src="${tyre.image}" alt="${tyre.brand} ${tyre.model}" style="width:100px;height:100px;"> 
-                <p>${tyre.brand} ${tyre.model} (Size: ${tyre.size}) - ₹${tyre.price}</p>
-                <button onclick='addToCart("${tyre.brand}", "${tyre.model}", "${tyre.size}", ${tyre.price}, "${tyre.image}")'>Add to Cart</button></div>`
-            ).join("");
-            resultsDiv.innerHTML = `<p>Available tyres for size ${tyreSize}:</p>` + tyreList;
+            let tyreList = filteredTyres.map(function(tyre) {
+                return '<div>' +
+                    '<img src="' + tyre.image + '" alt="' + tyre.brand + ' ' + tyre.model + '" style="width:100px;height:100px;">' +
+                    '<p>' + tyre.brand + ' ' + tyre.model + ' (Size: ' + tyre.size + ') - ₹' + tyre.price + '</p>' +
+                    '<button onclick=\'addToCart("' + tyre.brand + '", "' + tyre.model + '", "' + tyre.size + '", ' + tyre.price + ', "' + tyre.image + '")\'>Add to Cart</button>' +
+                    '</div>';
+            }).join("");
+            resultsDiv.innerHTML = "<p>Available tyres for size " + tyreSize + ":</p>" + tyreList;
         } else {
-            resultsDiv.innerHTML = `<p>No tyres found for the selected size.</p>`;
+            resultsDiv.innerHTML = "<p>No tyres found for the selected size.</p>";
         }
     }, 1000);
 
@@ -172,24 +180,27 @@ function searchBySize() {
 function updateCartDisplay() {
     const cartDiv = document.getElementById("cart-items");
     if (!cartDiv) return;
-    cartDiv.innerHTML = `<h3>Cart</h3>`;
+
+    cartDiv.innerHTML = "<h3>Cart</h3>";
     let total = 0;
-    
-    cart.forEach((item, index) => {
+
+    cart.forEach(function(item, index) {
         total += item.price;
-        cartDiv.innerHTML += `<div><img src="${item.image}" alt="${item.brand} ${item.model}" style="width:50px;height:50px;"> 
-            ${item.brand} ${item.model} (Size: ${item.size}) - ₹${item.price} 
-            <button onclick="removeFromCart(${index})">Remove</button></div>`;
+        cartDiv.innerHTML += '<div>' +
+            '<img src="' + item.image + '" alt="' + item.brand + ' ' + item.model + '" style="width:50px;height:50px;"> ' +
+            item.brand + ' ' + item.model + ' (Size: ' + item.size + ') - ₹' + item.price + ' ' +
+            '<button onclick="removeFromCart(' + index + ')">Remove</button>' +
+            '</div>';
     });
 
-    cartDiv.innerHTML += `<p><strong>Total: ₹${total}</strong></p>`;
+    cartDiv.innerHTML += "<p><strong>Total: ₹" + total + "</strong></p>";
 }
 
 function addToCart(brand, model, size, price, image) {
-    cart.push({ brand, model, size, price, image });
+    cart.push({ brand: brand, model: model, size: size, price: price, image: image });
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartDisplay();
-    alert(`${brand} ${model} added to cart!`);
+    alert(brand + " " + model + " added to cart!");
 }
 
 function removeFromCart(index) {
@@ -198,15 +209,7 @@ function removeFromCart(index) {
     updateCartDisplay();
 }
 
-
-
-
-
-
-
-
-
-let lastTotal = 0; // Store the final total before checkout
+let lastTotal = 0;
 
 function checkout() {
     if (cart.length === 0) {
@@ -214,19 +217,31 @@ function checkout() {
         return;
     }
 
-    // Calculate total before clearing the cart
-    lastTotal = cart.reduce((sum, item) => sum + item.price, 0);
+    lastTotal = cart.reduce(function(sum, item) {
+        return sum + item.price;
+    }, 0);
 
-    alert(`Order Summary:\n${cart.map(item => `${item.brand} ${item.model} - ₹${item.price}`).join("\n")}\nTotal: ₹${lastTotal}`);
+    let summary = "Order Summary:\n" + cart.map(function(item) {
+        return item.brand + " " + item.model + " - ₹" + item.price;
+    }).join("\n") + "\nTotal: ₹" + lastTotal;
 
-    localStorage.removeItem("cart"); // Clear local storage
-    cart.length = 0; // Empty cart array
-    updateCartDisplay(); // Refresh cart UI
-    
+    alert(summary);
+
+    localStorage.removeItem("cart");
+    cart.length = 0;
+    updateCartDisplay();
+
     if (typeof showHide === "function") {
         showHide("deliveryAddress");
     }
 }
+
+function continuePayment() {
+    showHide("payment-container");
+}
+
+updateCartDisplay();
+
 
 function continuePayment() {
     showHide("payment-container");
@@ -257,9 +272,11 @@ function addNewTyre() {
         alert("Please fill all the fields correctly.");
         return;
     }
-    
-    availableTyres.push({ brand, model, size, price, image });
-    alert(`Tyre ${brand} ${model} added successfully!`);
+
+    else{
+    availableTyres.push({ brand: brand, model: model, size: size, price: price, image: image });
+    alert("Tyre " + brand + " " + model + " added successfully!");
+    }
     
     document.getElementById("newTyreBrand").value = "";
     document.getElementById("newTyreModel").value = "";
@@ -417,45 +434,6 @@ document.getElementById('loginFormElement').addEventListener('submit', function(
 });
    
 
-//product page code
-// const productListElement = document.getElementById('product-list');
-
-// availableTyres.forEach(product => {
-//     const productDiv = document.createElement('div');
-//     productDiv.classList.add('product');
-
-//     const productName = document.createElement('h2');
-//     productName.textContent = product.brand;
-//     productDiv.appendChild(productName);
-
-//     const productModel = document.createElement('h3');
-//     productModel.textContent = product.model;
-//     const productSize = document.createElement('p');
-//     productSize.textContent = product.size;
-//     productDiv.appendChild(productModel); 
-//     productDiv.appendChild(productSize);
-
-//     const productImage = document.createElement('img');
-//     productImage.src = product.image;
-//     productImage.alt = product.name;
-//     productImage.width = 200; // Set width in pixels
-//     productImage.height = 200; // Set height in pixels
-//     productDiv.appendChild(productImage);
-
-//     const productPrice = document.createElement('h3');
-//     productPrice.textContent = product.price;
-//     productDiv.appendChild(productPrice);
-
-//     const addToCartButton = document.createElement('button');
-//     addToCartButton.textContent = 'Add to Cart';
-//     addToCartButton.addEventListener('click', () => addToCart(product));
-//     productDiv.appendChild(addToCartButton);
-
-
-//     productListElement.appendChild(productDiv);
-
-
-// });
 
 const productListElement = document.getElementById('product-list');
 const searchBox = document.getElementById('search-box');
@@ -546,25 +524,3 @@ function ShowPayment() {
         form.reportValidity();
     }
 }
-
-//address reagan
-// function ShowPayment() {
-//     const requiredFields = ['fullName', 'phoneNumber', 'address', 'city', 'state', 'pincode'];
-//     let allFilled = true;
-
-//     requiredFields.forEach(id => {
-//         const field = document.getElementById(id);
-//         if (!field || !field.value.trim( )) {
-//             allFilled = false;
-//             field.style.border = '2px solid red';
-//         } else {
-//             field.style.border = '';
-//         }
-//     });
-
-//     if (allFilled) {
-//         showHide('payment-container');
-//     } else {
-//         alert('Please fill in all required address fields.');
-//     }
-// }
