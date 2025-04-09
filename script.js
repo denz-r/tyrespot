@@ -227,7 +227,6 @@ function checkout() {
         showHide("deliveryAddress");
     }
 }
-
 function continuePayment() {
     showHide("payment-container");
 }
@@ -295,10 +294,6 @@ function processPayment() {
         downloadButton.style.display = "block";
     }, 2000);
 }
-
-
-
-
 
 
 function downloadReceipt() {
