@@ -1005,3 +1005,7 @@ h1 {
 .product-item button:hover {
     background-color: #0056b3;
 }
+
+.pro{
+    width: 97%;
+}

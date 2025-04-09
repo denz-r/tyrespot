@@ -316,7 +316,7 @@ function downloadReceipt() {
     doc.text("-------------------", 10, 30);
     doc.text("Date: " + currentDate, 10, 40);
     doc.text("Card Number: **** **** **** " + document.getElementById("cardNumber").value.slice(-4), 10, 50);
-    doc.text("Expiry Date: " + document.getElementById("expiry").value, 10, 60);
+    // doc.text("Expiry Date: " + document.getElementById("expiry").value, 10, 60);
     doc.text("Name: " + document.getElementById("fullName").value, 10, 70);
     doc.text("Phone Number: " + document.getElementById("phone").value, 10, 80);
     doc.text("Address: " + document.getElementById("address").value, 10, 90);
