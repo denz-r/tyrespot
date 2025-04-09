@@ -35,17 +35,17 @@ const tyreData = {
         { brand: "Ceat", model: "SecuraDrive", size: "195/65R15", price: 4800, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
         { brand: "Apollo", model: "Aspire 4G", size: "215/55R17", price: 5000, image: "https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg" },
         { brand: "MRF", model: "Perfinza CLX1", size: "215/55R17", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
-        { brand: "Ceat", model: "SportDrive", size: "215/55R17", price: 4800, image: "https" },
-        { brand: "Apollo", model: "Amazer 4G Life", size: "185/60R15", price: 5000, image: "Apollo.jpg" },
+        { brand: "Ceat", model: "SportDrive", size: "215/55R17", price: 4800, image: "app.webp" },
+        { brand: "Apollo", model: "Amazer 4G Life", size: "185/60R15", price: 5000, image: "app.webp" },
         { brand: "MRF", model: "ZVTV", size: "185/60R15", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
         { brand: "Ceat", model: "Milaze X3", size: "185/60R15", price: 4800, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
-        { brand: "Apollo", model: "Apteerra AT2", size: "265/65R17", price: 5000, image: "Apollo.jpg" },
+        { brand: "Apollo", model: "Apteerra AT2", size: "265/65R17", price: 5000, image: "app.webp" },
         { brand: "MRF", model: "Wanderer A/T", size: "185/60R15", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
         { brand: "Ceat", model: "CrossDrive", size: "185/60R15", price: 4800, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
-        { brand: "Apollo", model: "Alnac 4G", size: "215/55R16", price: 5000, image: "Apollo.jpg" },
+        { brand: "Apollo", model: "Alnac 4G", size: "215/55R16", price: 5000, image: "app.webp" },
         { brand: "MRF", model: "Perfinza", size: "215/55R16", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
         { brand: "Ceat", model: "SecuraDrive", size: "215/55R16", price: 4800, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
-        { brand: "Apollo", model: "Aspire 4G", size: "225/50R17", price: 5000, image: "Apollo.jpg" },
+        { brand: "Apollo", model: "Aspire 4G", size: "225/50R17", price: 5000, image: "app.webp" },
         { brand: "MRF", model: "ZLO", size: "225/50R17", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
         { brand: "Ceat", model: "SportDrive", size: "225/50R17", price: 4800, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
         { brand: "Apollo" , model:"Alpha H1", size:"140/70R17", price:5600, image: "https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg"},
@@ -372,7 +372,7 @@ document.getElementById('signupBtn').addEventListener('click', function() {
 });
 
 
-// Optional: Hide forms when clicking outside of them
+//  Hide forms when clicking outside of them
 document.addEventListener('click', function (event) {
     const loginForm = document.getElementById('loginForm');
     const registrationForm = document.getElementById('registrationForm');
@@ -548,23 +548,23 @@ function ShowPayment() {
 }
 
 //address reagan
-function ShowPayment() {
-    const requiredFields = ['fullName', 'phoneNumber', 'address', 'city', 'state', 'pincode'];
-    let allFilled = true;
+// function ShowPayment() {
+//     const requiredFields = ['fullName', 'phoneNumber', 'address', 'city', 'state', 'pincode'];
+//     let allFilled = true;
 
-    requiredFields.forEach(id => {
-        const field = document.getElementById(id);
-        if (!field || !field.value.trim( )) {
-            allFilled = false;
-            field.style.border = '2px solid red';
-        } else {
-            field.style.border = '';
-        }
-    });
+//     requiredFields.forEach(id => {
+//         const field = document.getElementById(id);
+//         if (!field || !field.value.trim( )) {
+//             allFilled = false;
+//             field.style.border = '2px solid red';
+//         } else {
+//             field.style.border = '';
+//         }
+//     });
 
-    if (allFilled) {
-        showHide('payment-container');
-    } else {
-        alert('Please fill in all required address fields.');
-    }
-}
+//     if (allFilled) {
+//         showHide('payment-container');
+//     } else {
+//         alert('Please fill in all required address fields.');
+//     }
+// }
