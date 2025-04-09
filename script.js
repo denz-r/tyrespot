@@ -32,7 +32,7 @@ const tyreData = {
    
         { brand: "Apollo", model: "Alnac 4G", size: "195/65R15", price: 5000, image: "https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg" },
         { brand: "MRF", model: "ZLX", size: "195/65R15", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" }, 
-        { brand: "Ceat", model: "SecuraDrive", size: "195/65R15", price: 4800, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
+       { brand: "Ceat", model: "SecuraDrive", size: "195/65R15", price: 4800, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
         { brand: "Apollo", model: "Aspire 4G", size: "215/55R17", price: 5000, image: "https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg" },
         { brand: "MRF", model: "Perfinza CLX1", size: "215/55R17", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
         { brand: "Ceat", model: "SportDrive", size: "215/55R17", price: 4800, image: "app.webp" },
@@ -227,6 +227,7 @@ function checkout() {
         showHide("deliveryAddress");
     }
 }
+
 function continuePayment() {
     showHide("payment-container");
 }
@@ -294,6 +295,10 @@ function processPayment() {
         downloadButton.style.display = "block";
     }, 2000);
 }
+
+
+
+
 
 
 function downloadReceipt() {
@@ -367,6 +372,22 @@ document.getElementById('signupBtn').addEventListener('click', function() {
 });
 
 
+//  Hide forms when clicking outside of them
+document.addEventListener('click', function (event) {
+    const loginForm = document.getElementById('loginForm');
+    const registrationForm = document.getElementById('registrationForm');
+    const loginBtn = document.getElementById('loginBtn');
+    const signupBtn = document.getElementById('signupBtn');
+
+    if (
+        !loginForm.contains(event.target) &&
+        !registrationForm.contains(event.target) &&
+        event.target !== loginBtn &&
+        event.target !== signupBtn
+    ) {
+        hideForms();
+    }
+});
 
 // Switch links inside forms
 document.getElementById('switchToSignup').addEventListener('click', function(e) {
@@ -396,6 +417,45 @@ document.getElementById('loginFormElement').addEventListener('submit', function(
 });
    
 
+//product page code
+// const productListElement = document.getElementById('product-list');
+
+// availableTyres.forEach(product => {
+//     const productDiv = document.createElement('div');
+//     productDiv.classList.add('product');
+
+//     const productName = document.createElement('h2');
+//     productName.textContent = product.brand;
+//     productDiv.appendChild(productName);
+
+//     const productModel = document.createElement('h3');
+//     productModel.textContent = product.model;
+//     const productSize = document.createElement('p');
+//     productSize.textContent = product.size;
+//     productDiv.appendChild(productModel); 
+//     productDiv.appendChild(productSize);
+
+//     const productImage = document.createElement('img');
+//     productImage.src = product.image;
+//     productImage.alt = product.name;
+//     productImage.width = 200; // Set width in pixels
+//     productImage.height = 200; // Set height in pixels
+//     productDiv.appendChild(productImage);
+
+//     const productPrice = document.createElement('h3');
+//     productPrice.textContent = product.price;
+//     productDiv.appendChild(productPrice);
+
+//     const addToCartButton = document.createElement('button');
+//     addToCartButton.textContent = 'Add to Cart';
+//     addToCartButton.addEventListener('click', () => addToCart(product));
+//     productDiv.appendChild(addToCartButton);
+
+
+//     productListElement.appendChild(productDiv);
+
+
+// });
 
 const productListElement = document.getElementById('product-list');
 const searchBox = document.getElementById('search-box');
@@ -487,3 +547,24 @@ function ShowPayment() {
     }
 }
 
+//address reagan
+// function ShowPayment() {
+//     const requiredFields = ['fullName', 'phoneNumber', 'address', 'city', 'state', 'pincode'];
+//     let allFilled = true;
+
+//     requiredFields.forEach(id => {
+//         const field = document.getElementById(id);
+//         if (!field || !field.value.trim( )) {
+//             allFilled = false;
+//             field.style.border = '2px solid red';
+//         } else {
+//             field.style.border = '';
+//         }
+//     });
+
+//     if (allFilled) {
+//         showHide('payment-container');
+//     } else {
+//         alert('Please fill in all required address fields.');
+//     }
+// }
