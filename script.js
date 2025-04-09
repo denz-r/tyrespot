@@ -224,8 +224,12 @@ function checkout() {
     updateCartDisplay(); // Refresh cart UI
     
     if (typeof showHide === "function") {
-        showHide("payment-container");
+        showHide("deliveryAddress");
     }
+}
+
+function continuePayment() {
+    showHide("payment-container");
 }
 
 // Ensure cart display updates on page load
@@ -313,8 +317,22 @@ function downloadReceipt() {
     doc.text("Date: " + currentDate, 10, 40);
     doc.text("Card Number: **** **** **** " + document.getElementById("cardNumber").value.slice(-4), 10, 50);
     doc.text("Expiry Date: " + document.getElementById("expiry").value, 10, 60);
-    doc.text("Amount: Rs" + lastTotal, 10, 70);
-    doc.text("Payment Status: Successful", 10, 80);
+    doc.text("Name: " + document.getElementById("fullName").value, 10, 70);
+    doc.text("Phone Number: " + document.getElementById("phone").value, 10, 80);
+    doc.text("Address: " + document.getElementById("address").value, 10, 90);
+    doc.text("City: " + document.getElementById("city").value, 10, 100);
+    doc.text("State: " + document.getElementById("state").value, 10, 110);
+    doc.text("Pincode: " + document.getElementById("pincode").value, 10, 120);
+    doc.text("Items Purchased:", 10, 130);
+
+    cart.forEach((item, index) => {
+        doc.text(`${index + 1}. ${item.brand} ${item.model} - ₹${item.price}`, 10, 140 + (index * 10));
+    });
+
+    doc.text("-------------------", 10, 180 + (cart.length * 10));
+    doc.text("Total Amount: ₹" + lastTotal, 10, 190 + (cart.length * 10));
+    doc.text("Payment Status: Successful", 10, 200);
+    doc.text("Thank you for shopping with us!", 10, 210 + (cart.length * 10));
     doc.save("receipt.pdf");
 }
 
@@ -530,23 +548,23 @@ function ShowPayment() {
 }
 
 //address reagan
-function ShowPayment() {
-    const requiredFields = ['fullName', 'phoneNumber', 'address', 'city', 'state', 'pincode'];
-    let allFilled = true;
+// function ShowPayment() {
+//     const requiredFields = ['fullName', 'phoneNumber', 'address', 'city', 'state', 'pincode'];
+//     let allFilled = true;
 
-    requiredFields.forEach(id => {
-        const field = document.getElementById(id);
-        if (!field || !field.value.trim( )) {
-            allFilled = false;
-            field.style.border = '2px solid red';
-        } else {
-            field.style.border = '';
-        }
-    });
+//     requiredFields.forEach(id => {
+//         const field = document.getElementById(id);
+//         if (!field || !field.value.trim( )) {
+//             allFilled = false;
+//             field.style.border = '2px solid red';
+//         } else {
+//             field.style.border = '';
+//         }
+//     });
 
-    if (allFilled) {
-        showHide('payment-container');
-    } else {
-        alert('Please fill in all required address fields.');
-    }
-}
+//     if (allFilled) {
+//         showHide('payment-container');
+//     } else {
+//         alert('Please fill in all required address fields.');
+//     }
+// }
