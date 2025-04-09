@@ -32,7 +32,7 @@ const tyreData = {
    
         { brand: "Apollo", model: "Alnac 4G", size: "195/65R15", price: 5000, image: "https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg" },
         { brand: "MRF", model: "ZLX", size: "195/65R15", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" }, 
-       { brand: "Ceat", model: "SecuraDrive", size: "195/65R15", price: 4800, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
+        { brand: "Ceat", model: "SecuraDrive", size: "195/65R15", price: 4800, image: "https://5.imimg.com/data5/MD/WZ/SW/GLADMIN-12/3.jpg" },
         { brand: "Apollo", model: "Aspire 4G", size: "215/55R17", price: 5000, image: "https://www.motorindiaonline.in/wp-content/uploads/2022/08/Apollo-Endurace-RA.jpg" },
         { brand: "MRF", model: "Perfinza CLX1", size: "215/55R17", price: 4500, image: "https://m.media-amazon.com/images/I/516XMsYkqXL.jpg" },
         { brand: "Ceat", model: "SportDrive", size: "215/55R17", price: 4800, image: "app.webp" },
@@ -227,7 +227,6 @@ function checkout() {
         showHide("deliveryAddress");
     }
 }
-
 function continuePayment() {
     showHide("payment-container");
 }
@@ -295,10 +294,6 @@ function processPayment() {
         downloadButton.style.display = "block";
     }, 2000);
 }
-
-
-
-
 
 
 function downloadReceipt() {
