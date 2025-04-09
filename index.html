@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Tyre Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+    </style>
+</head>
+<body> 
+     <header>
+        <div style="display: flex; justify-content: center;">
+                <img src="logo.png" alt="logo" style="height: 100px; margin-right: 10px;">
+                <div>
+                    <h2 class="heading">THE TYRESPOT</h2>
+                    <p><i>Where grip meets the road</i></p>
+                </div>   
+        </div>
+
+        <a href="#" onclick="showHide('CheckOut')"><img src="cart-shopping-solid.svg" alt="Cart" id="cartIcon" height="40px" width="40px" style="margin-left: 95%; cursor: pointer;"/></a>
+
+
+        <nav>
+            <div class="auth-buttons">
+                <button class="auth-btn login-btn active" id="loginBtn">Login</button>
+                <button class="auth-btn signup-btn" id="signupBtn" >Sign-Up</button>
+            </div>
+            <ul>
+                <li><a href="#" onclick="showHide('home')">Home</a></li>
+                <li><a href="#" onclick="showHide('products')">Products</a></li>
+                <li><a href="#" onclick="showHide('ShopByVehicle')">Search by Vehicle</a></li>
+                <li><a href="#" onclick="showHide('ShopBySize')">Search by Size</a></li>
+                <li><a href="#" onclick="showHide('about')">About Us</a></li>
+                <li><a href="#" onclick="showHide('contact')">Contact Us</a></li>
+                <li><a href="#" onclick="showHide('password')">Dealer's Solution</a></li> 
+            </ul>
+        </nav>
+    </header> 
+    
+
+    <div class="container">
+        <!-- Login Form -->
+        <div id="loginForm" class="form-container" style="display: none;">
+            <h2>Log into your account</h2>
+            
+            <form id="loginFormElement">
+                <div class="form-group">
+                    <tr>
+                        <label class="required-field" >Email</label>
+                        <input type="email" name="email" required> 
+                    </tr>
+                </div>
+                
+                <div class="form-group">
+                    <tr>
+                        <label class="required-field">Password</label>
+                        <input type="password" name="password" required>
+                    </tr>
+                </div>
+                
+                <button type="submit" class="btn-submit">Login</button>
+                
+                <div class="form-footer">
+                    Not a Member yet? <a href="#" id="switchToSignup">Sign Up</a>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Registration Form -->
+        <div id="registrationForm" class="form-container" style="display: none;">
+            <h2>Add Your Details</h2>
+            
+            <form id="registrationFormElement">
+                <table class="form-table">
+                    <tr>
+                        <td><label class="required-field">Full Name</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="fullName" placeholder="Enter full name" required></td>
+                    </tr>
+                    <tr>
+                        <td><label class="required-field">Phone Number</label></td>
+                        <td><label class="required-field">Email</label></td>
+                    </tr>
+                    <tr>
+
+                        <td><input type="tel" name="phone" maxlength="10" pattern="\d{10}" inputmode="numeric" placeholder="Enter your phone number" required></td>
+
+                        <td><input type="email" name="email" placeholder="Enter email" required></td>
+                    </tr>
+                    <tr>
+                        <td><label class="required-field">Address</label></td>
+                        <td><label class="required-field">Pin code</label></td>
+                        <td><label class="required-field">City</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="address" placeholder="Enter address"></td>
+                        <!-- <td><input type="number" inputmode="numeric" name="pincode" placeholder="Enter pincode" maxlength="6" pattern="\d{6}"></td> -->
+                        <td><input type="text" name="pincode" maxlength="6" pattern="\d{6}" inputmode="numeric" placeholder="Enter your pincode" required></td>
+                        <td><input type="text" name="city" placeholder="Enter city" required></td>
+                    </tr>
+                    <tr>
+                        
+                        <td><label>Select State</label></td>
+                        <td><label>Country</label></td>
+                    </tr>
+                    <tr>
+                        <td> 
+                            <select name="state">
+                                <option value="">Select State</option>
+                                <option value="delhi">Delhi</option>
+                                <option value="Goa">Goa</option>
+                                <option value="maharashtra">Maharashtra</option>
+                                <option value="karnataka">Karnataka</option>
+                                <option value="uttarpradesh">UttarPradesh</option>
+                            </select>
+                        </td>
+                        <td><input type="text" name="country" value="India" readonly></td>
+                    </tr>
+                    <tr>
+                        <td><label class="required-field">Password</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" name="password" required minlength="5" maxlength="12" placeholder="Enter a strong password"></td>
+                    </tr>
+                    <tr>
+                        <td><label class="required-field">Confirm Password</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="password" name="confirmPassword" required minlength="5" maxlength="12" placeholder="confirm your password"></td>
+                    </tr>
+                </table>
+                
+                <p class="note">Note: Password require minimum 5 characters and Maximum 12 characters.</p>
+                <p class="required-note">* Required Fields</p>
+                
+                <button type="submit" class="btn-submit">Register</button>
+                
+                <div class="form-footer">
+                    Already registered? <a href="#" id="switchToLogin">Login here</a>
+                </div>
+            </form>
+        </div>
+    </div> 
+
+
+<!-- home page -->
+    <div id="home" class="ShowHide" style="display: block;">
+            <div class="hero-content">
+                <ul>
+                    <li>&#10004; Tyres For All Types Of Vehicles</li>
+                    <li>&#10004; Wide Range Of Durable & Long Lasting Tyres</li>
+                    <li>&#10004; 100% Genuine Branded Tyres</li>
+                    <li>&#10004; Attractive Prices</li>
+                    <li>&#10004; Full Payment Security</li>
+                    <li>&#10004; Backed By Brand Assurance & Warranty</li>
+                </ul>
+            </div>
+            
+            <div class="hero2">
+                    <h3>Quality Tires for Every Road</h3>
+                    <p>Choose the best for your vehicle. We offer premium tires for all types of cars and roads.</p> 
+                    <h3>Reliable, Durable & Affordable</h3>
+                    <p>Whether you're driving in the city, off-road, or on the highway — we've got tyres that guarantee safety, performance, and longevity</p>
+                    <button onclick="showHide('products')" class="cta-btn">View Products</button>  
+            </div> 
+
+            
+        <div class="boxes">  
+            <h1 class="boxes-heading">How Does The TyreSpot Work?</h1>
+                <div class="box-container">
+                    <div class="box1">
+                        <img src="tyre.png" alt="Tyre Icon" class="icon">
+                        <h3>FIND THE RIGHT TYRES</h3>
+                        <p>Choose from a wide range of tyre brands</p>
+                    </div>
+
+    
+                    <div class="box2">
+                        <img src="free-shipping.png" alt="Home Delivery Icon" class="icon">
+                        <h3>GET DOOR-STEP DELIVERY FOR FREE</h3>
+                        <p>Get your tyres delivered at your door-step usually in 5 to 8 business days*</p>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <!-- product page -->
+    <div id="products" class="ShowHide" style="display: none;">
+        <div class="container">
+            <h1>OUR PRODUCTS</h1>
+            <div class="pro">
+                <input type="text" id="search-box" placeholder="Search by brand, model or size">  
+            </div>
+            <div class="product-list" id="product-list" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                <!-- Product items will be dynamically added here -->   
+            </div>
+        </div>
+    </div>
+
+   
+
+    <div id="ShopByVehicle" class="ShowHide" style="display: none;">
+        <section id="search">
+            <h2>Find Your Tyres</h2>
+            <form id="vehicle-search">
+                <label for="vehicleType">Vehicle Type:</label>
+                <select id="vehicleType" onchange="updateBrands()">
+                    <option value="">Select Vehicle Type</option>
+                    <option value="car">Car</option>
+                    <option value="bike">Bike</option>
+                    <option value="SCV">SCV</option>
+                </select>
+                <label for="brand">Brand:</label>
+                <select id="brand" onchange="updateModels()">
+                    <option value="">Select Brand</option>
+                </select>
+                <label for="model">Model:</label>
+                <select id="model">
+                    <option value="">Select Model</option>
+                </select>
+            </form>
+            <button type="button" onclick="suggestTyres()">Search</button>
+        </section>
+
+    </div>
+    
+    <div id="ShopBySize" class="ShowHide" style="display: none;">
+        <section id="size-search">
+            <h2>Search by Tyre Size</h2>
+            <form id="size-search">
+                <label for="tyre-size">Select Tyre Size:</label>
+                <input type="text" id="tyre-size" placeholder="e.g. 195/55 R16">
+                <button type="button" onclick="searchBySize()">Search</button>
+            </form>
+        </section>
+    </div>
+    
+    <div id="SuggestedTyres" class="ShowHide" style="display: none;">
+        <section id="tyres-list">
+            <h2>Suggested Tyres</h2>
+            <div id="results"></div>
+        </section>
+    </div>
+    
+    <div id="CheckOut" class="ShowHide" style="display: none;">
+        <section id="cart">
+            <h2>Shopping Cart</h2>
+            <div id="cart-items"></div>
+            <!-- <button onclick="checkout()">Checkout</button> -->
+            <button onclick="checkout()">Proceed to Checkout</button>
+        </section>
+    </div>
+
+    <div id="deliveryAddress" class="ShowHide" style="display: none;">
+    <form id="shippingForm">
+        <h2>Shipping Address</h2>
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required>
+    
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" required>
+    
+        <label for="address">Street Address</label>
+        <input type="text" id="address" name="address" required>
+    
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" required>
+    
+        <label for="state">State</label>
+        <input type="text" id="state" name="state" required>
+    
+        <label for="pincode">Pincode</label>
+        <input type="text" id="pincode" name="pincode" required>
+    
+        <button type="button" onclick="continuePayment()">Continue to Payment</button>
+      </form>
+    </div>
+    
+    
+
+    <div id="payment-container" class="ShowHide" style="display: none;">
+        <h2>Payment Gateway</h2>
+        <input type="text" id="cardNumber" placeholder="Card Number" maxlength="19" oninput="formatCardNumber(this)">
+        <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" oninput="validateExpiry(this)">
+        <input type="text" id="cvv" placeholder="CVV" maxlength="3" oninput="this.value = this.value.replace(/\D/g, '')">
+        <button id="payButton" onclick="processPayment()">Pay Now</button>
+        <div class="message" id="message">Payment Successful!</div>
+        <button id="downloadReceipt" style="display:none; margin-top: 10px;" onclick="downloadReceipt()">Download Receipt</button>
+    </div>
+
+    <div id="about" class="ShowHide" > 
+        <div class="about-container">  
+        <h1>About Us</h1>
+        <div class="about1">
+          <p class="para">At TyreSpot, we are passionate about keeping your journey smooth, safe, and reliable — no matter where the road takes you. Founded with a vision to simplify tyre buying, we bring you a hassle-free way to shop for premium tyres online with confidence and ease. We believe that safety, performance, and comfort on the road begin with the right set of tyres. Founded with the mission to make premium tyres accessible to everyone, we offer a seamless online platform where you can explore, compare, and buy tyres from trusted brands — all from the comfort of your home.</p>
+        </div>
+        <div class="about2">
+            <h1 class="head">We Specialize In </h1>
+            <p class="para">Tyre Sales: Genuine tyres from top global brands like Ceat, MRF and Apollo.
+
+                Doorstep Delivery: Get your tyres delivered straight to your home in just a few days.
+                
+                Expert Guidance: Not sure which tyre suits your car or driving habits? Our support team is here to help.
+                
+            </p>
+        </div>
+        <div class="about3">
+            <h1 class="head">Why Choose us?</h1>
+            <ul class="abt">
+                <li>100% Authentic Products</li>
+                <li>Competitive Prices</li>               
+                <li>Easy Online Ordering</li>                
+                <li>Quick Delivery & Flexible Fitment Options</li>
+                <li>Excellent Customer Support</li>
+                <li>We're not just selling tyres — we're delivering peace of mind, one ride at a time.</li>   
+            </ul>
+        </div>  
+        </div>      
+    </div>
+
+
+    <div id = "password" class="ShowHide" style="display: none;">
+        <h1>Enter The Special Code</h1>
+        <input type="password" id="passwordd" placeholder="Enter the code" />
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+
+
+    <div id="AddingTyre" class="ShowHide" style="display: none;">
+        <h3>Add New Tyre</h3>
+        <input type="text" id="newTyreBrand" placeholder="Brand" required>
+        <input type="text" id="newTyreModel" placeholder="Model" required>
+        <input type="text" id="newTyreSize" placeholder="Size" required>
+        <input type="number" id="newTyrePrice" placeholder="Price" required>
+        <input type="text" id="newTyreImage" placeholder="Image URL" required>
+        <button onclick="addNewTyre()">Add Tyre</button>
+    </div>
+
+    
+
+    <div id="contact" class="ShowHide contact-page" style="display: none;">
+        <h2>Get in Touch</h2>
+        <p>Email: contact@tyreshop.com</p>
+        <p>Phone: +123 456 7890</p>
+        <h3>Contact Form</h3>
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Leave a Feedback:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+
+    <footer>
+        <p>&copy; 2025 Tyre Market. All Rights Reserved.</p>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>Best Tires</h3>
+                <p>Reliable tires, dependable service.</p>
+            </div>
+            <ul class="social-links">
+                <li><a href="https://www.instagram.com/the_tyre_spot_?igsh=MXZ4a3NlbG50NXBhMw==">Facebook</a></li>
+                <li><a href="https://www.instagram.com/the_tyre_spot_?igsh=MXZ4a3NlbG50NXBhMw==">Instagram</a></li>
+                <li><a href="https://www.instagram.com/the_tyre_spot_?igsh=MXZ4a3NlbG50NXBhMw==">Twitter</a></li>
+            </ul>
+        </div>
+    </footer> 
+
+    <script src="script.js" ></script>
+</body>
+</html>
+
